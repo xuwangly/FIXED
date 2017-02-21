@@ -1,0 +1,22 @@
+		linux flash_tool安装
+
+1.在官网下载 flash_tool 
+	http://spflashtool.com/
+	选者 Download SPFlashTool for Linux - 64 Bit Tool ，下载
+
+2.解压下载的文件，并加入 PATH 变量
+	unzip SP_Flash_Tool_exe_Linux_64Bit_v5.1520.00.100.zip -d  ~/
+	echo "export PATH=$PATH:~/SP_Flash_Tool_exe_Linux_v5.1520.00.100" >> ~/.bashrc
+	. ~/.bashrc
+	
+3.安装libusb-dev
+	sudo apt-get install libusb-dev 
+	
+4.创建 udev rule for MTK
+	sudo cp 53-MTKinc.rules /etc/udev/rules.d/
+	sudo chmod 777 	/etc/udev/rules.d/53-MTKinc.rules
+	sudo apt-get remove modemmanager
+	sudo service udev restart
+
+5.卸载modemmanager 可能造成 cdc_acm 不可用 
+	sudo modprobe cdc_acm	//可以不装貌似。。。
