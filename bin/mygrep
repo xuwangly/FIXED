@@ -1,0 +1,2 @@
+#/bin/sh
+grep -r --color --binary-files=without-match $1 ./*
