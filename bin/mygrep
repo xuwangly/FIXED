@@ -1,2 +1,6 @@
 #/bin/sh
-grep -r --color --binary-files=without-match $1 ./*
+if [ "" = "$3" ]; then  
+	echo usage: mygrep something
+else
+	grep -r --color --binary-files=without-match $1 ./*
+fi
