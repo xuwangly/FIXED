@@ -1,0 +1,171 @@
+/*-------------------------------------------------------------------------------------------------
+					获取 和 提交代码
+---------------------------------------------------------------------------------------------------*/
+拉取服务器代码：
+mkdir -p ~/work/project_uvc_camera
+cd ~/work/project_uvc_camera
+repo init -u gerrit_lv:platform/manifest --no-repo-verify
+repo sync
+
+提交代码：
+git add .
+git commit -m "xxx"
+git fetch gerrit_lv
+git rebase gerrit_lv/uvc_camera
+git push gerrit_lv HEAD:refs/for/uvc_camera
+
+1. repo init -u gerrit_lv:platform/manifest -m default.xml -b uvc_camera
+	-u:指定一个URL，其连接到一个maniest仓库		这里指定到10.4.64.226的 gerrit服务器上的 platform/manifest 库
+	-m:在manifest仓库中选择一个xml文件		使用默认的就好	
+	-b:选择一个maniest仓库中的一个特殊的分支		这边不需要指定，因为manifest中的default.xml中指明了:<default remote="gerrit_lv" revision="uvc_camera" />，指定-b会出错，还不明白为啥
+即： repo init -u gerrit_lv:platform/manifest
+
+2. repo sync
+	同步代码，第一次需要较长时间
+
+3. git add . 
+	添加改动的代码到 Git索引库
+
+4. git commit -m "xxx"
+	提交工作空间的修改内容 -m输入一条提交信息
+5. git fetch gerrit_lv
+	将远程主机的更新，全部取回本地 注意：fetch不会做任何的合并操作
+6. git rebase gerrit_lv/uvc_camera
+	http://blog.csdn.net/hudashi/article/details/7664631/
+	先取消本体的提交，保存为临时的patch，再在最新的远程分支的基础上将这些patch打上去,上面的博文作了很好的解释
+7. git push gerrit_lv HEAD:refs/for/uvc_camera
+	提交代码到gerrit服务器等待审核（refs/for/）
+	git push gerrit_lv:/kernel/msm-3.18 HEAD:refs/heads/uvc_camera
+	gerrit_lv:/kernel/msm-3.18 ： 远程gerrit服务器，指定 到 具体的 kernel/msm-3.18 git库 ，HEAD:refs/heads/uvc_camera将当前的HEAD推送给远程库的uvc_camera分支
+	等同于 git push ssh://gerrit_lv/kernel/msm-3.18 HEAD:refs/heads/uvc_camera 
+
+
+/*-------------------------------------------------------------------------------------------------
+			推送已有代码到新的gerrit服务器流程说明
+---------------------------------------------------------------------------------------------------*/
+
+1.确保本地的~/.ssh/config 文件,保存了两个 Host 以便能够同时链接 新的 和 老的 gerrit服务器
+Host gerrit_lv
+    HostName 10.4.64.226			//gerrit服务器地址	
+    Port 29418					//gerrit服务的端口号，默认都是29418
+    User wangxu					//登陆gerrit服务器的用户名
+    IdentityFile ~/.ssh/id_rsa			//验证的私钥 ， 与之对应的公钥应该已经放到了，gerrit服务器中  使用User：wangxu登陆（自己的用户名） setting >> SSH Public Keys >> Add key
+Host gerrit_sh
+    HostName 10.4.64.129
+    Port 29418
+    User chenyue
+    IdentityFile ~/.ssh/id_rsa.rapid
+2.拉取老gerrit中的源码
+	repo init -u gerrit_sh:manifest -b littlecola_dvt
+	repo sync -j4
+3.获取projectlist
+	repo forall -c 'echo $REPO_PROJECT' | tee pro.log
+	// repo forall 遍历repo下所有的git库 ，-c执行命令 echo $REPO_PROJECT 打印出REPO_PROJECT变量（很明显遍历不同的git库时，变量REPO_PROJECT值不同）
+	// | 是管道:管道左边的命令的输出会作为右边命令的输入
+	// tee 命令从管道中读取输入数据，并同时 输出到界面 和文件 pro.log中（即一份输入，两份输出）
+3. 生成sh文件，用来在gerrit创建工程库，注意加一下可执行权限
+	sed 's/^/ssh -p 29418 wucaiyun@10.4.64.226 gerrit create-project /' pro.log > pro.sh
+	//http://baike.baidu.com/link?url=tz1yS3XrNfe3cDTBo0QIwAJHFd1-WizvwdyVxCqCzTnhpM9HwfESclKAqj1X04_SO9OcPkG7ajinXNKf0MwkKa
+	//sed 命令用来替换字符串，每行都会处理， 用法：sed 's/oldstring/newstring/'
+	// s 表示替换命令
+	// ^ 表示开头
+	//ssh -p 29418 wucaiyun@10.4.64.226 gerrit create-project  是要替换的内容
+	//即在每行的开头插入 ssh -p 29418 wucaiyun@10.4.64.226 gerrit create-project 
+	//  > 符号是重定向符号，没有该符号的话 ，之前替换后的内容会打印在标准输出上，即命令行中， 重定向后会输入到文件 pro.log（没有会自动创建）（>> 也是重定向，但是会追加在文件末尾）
+4. vim pro.sh set nu
+	使用vim打开pro.sh文件
+	//在vi中 输入 : set nu 设置显示行号 ， 重新打开vi，行号不会显示，需要一直显示的话需要更改vi的配置文件，自行百度 ，很简单
+5. (repo forall -c 'pwd && git push gerrit_lv:/$REPO_PROJECT HEAD:refs/heads/uvc_camera') 2>&1 | tee push.log 
+	//这里也是遍历 执行 git push gerrit_lv:/$REPO_PROJECT HEAD:refs/heads/uvc_camera 并将结果输出到 push.log中去
+	//说说  2>&1
+	0 表示stdin标准输入
+	1 表示stdout标准输出
+	2 表示stderr标准错误
+	//这里的 2>&1 就是将标准输出信息和 标准错误信息一起 通过管道传给 tee
+
+/*-------------------------------------------------------------------------------------------------
+					在gerrit上创建新的project
+---------------------------------------------------------------------------------------------------*/
+
+ssh -p 29418 wucaiyun@10.64.226 gerrit create-project "project/name"
+
+/*-------------------------------------------------------------------------------------------------
+					往ldap添加删除用户
+---------------------------------------------------------------------------------------------------*/
+例：
+add_ldap_user.sh wangxu1 90001 191997916@qq.com
+//Usage: /home/lenovo/bin/add_ldap_user.sh username pidNumber email@lenovo.com
+delete_ldap_user.sh wangxu1
+
+下面是脚本 ， 已经copy到10.4.64.226 下 /home/lenovo/bin/add_ldap_user.sh 和 /home/lenovo/bin/delete_ldap_user.sh
+#!/bin/sh
+if [ "" = "$3" ]; then
+        echo "Usage $0 username pidNumber email@lenovo.com"  
+else
+        touch ~/ldapuser/$1.ldif
+        echo "dn: uid=$1,ou=people,dc=sdu,dc=com" > ~/ldapuser/$1.ldif
+        echo "objectClass: inetOrgPerson" >> ~/ldapuser/$1.ldif
+        echo "objectClass: shadowAccount" >> ~/ldapuser/$1.ldif
+        echo "objectClass: posixAccount" >> ~/ldapuser/$1.ldif
+        echo "uid: $1" >> ~/ldapuser/$1.ldif
+        echo "homeDirectory:" >> ~/ldapuser/$1.ldif
+        echo "sn: $1" >> ~/ldapuser/$1.ldif
+        echo "cn: $1" >> ~/ldapuser/$1.ldif
+        echo "uidNumber: $2" >> ~/ldapuser/$1.ldif
+        echo "gidNumber: $2" >> ~/ldapuser/$1.ldif
+        echo "userPassword: lenovo" >> ~/ldapuser/$1.ldif
+        echo "mail: $3" >> ~/ldapuser/$1.ldif
+        ldapadd -x -D "cn=admin,dc=sdu,dc=com" -W -f ~/ldapuser/$1.ldif
+#       rm tmp.ldif
+        #ldappasswd -x -D "cn=admin,dc=sdu,dc=com" -w lenovo "uid=$1,ou=People,dc=sdu,dc=com" -s lenovo
+fi
+删除用户
+#!/bin/sh
+if [ "" =  "$1" ]; then
+        echo "Usage $0 username"  
+else
+        rm /home/lenovo/ldapuser/$1.ldif
+        ldapdelete -x -D "cn=admin,dc=sdu,dc=com" -W " uid=$1,ou=people,dc=sdu,dc=com"
+fi
+/*-------------------------------------------------------------------------------------------------
+						ssh服务
+---------------------------------------------------------------------------------------------------*/
+SSH（全称 Secure Shell)是一种加密的网络协议。使用该协议的数据将被加密，如果在传输中间数据泄漏，也可以确保没有人能读取出有用信息。
+要使用 SSH，目标机器应该安装 SSH 服务端应用程序，因为 SSH 是基于客户-服务模式的。 当你想安全的远程连接到主机，可中间的网络（比如
+因特网）并不安全，通常这种情况下就会使用 SSH
+
+常用命令：
+1. ssh -p 22 username@10.4.64.226
+	//这里用ssh登陆电脑 ， 验证方式为 用户名加密码
+	//username 是远程主机电脑 的用户名（不是gerrit服务器的用户名），如果不指定 username默认用当前用户的用户名如 wangxu@wangxu-pc:~$ ssh 10.4.64.226 默认username：wangxu
+	//10.4.64.226：ip地址
+	//-p指定端口，默认是 22
+2. ssh -p 29418 wucaiyun@10.4.64.226 gerrit create-project
+	//这里用ssh登陆远程的gerrit服务 ， 验证方式为 用户名 加 ssh-key 密钥（公钥放到gerri服务器上）
+	//-p指定了gerrit服务器绑定的ssh端口，这里没有用默认端口号
+
+/*-------------------------------------------------------------------------------------------------
+						repo说明
+---------------------------------------------------------------------------------------------------*/
+which repo 找到repo位置并打开，发现如下内容
+
+#!/bin/sh
+
+REPO_URL='gerrit_sh:/tools/repo'
+REPO_REV='rocket'
+
+google原生的应该是
+
+#!/usr/bin/env python
+
+# repo default configuration
+#
+import os
+REPO_URL = os.environ.get('REPO_URL', None)
+if not REPO_URL:
+REPO_URL = 'https://gerrit.googlesource.com/git-repo'
+REPO_REV = 'stable'
+
+
+ 	这边修改了 REPO_URL 和 REPO_REV， #!/bin/sh 表明repo是一个shell脚本文件，但是我们读知道repo是用phython写的,其实我们在在执行repo init时 ，会通过REPO_URL 去下载真正的repo放在.repo下，但是原生的url是google的网站，而我们因为GFW，所以没法访问~ 所以这边自己做了一个镜像放在自己的服务器上，就是 tools/repo
+	 REPO_REV 是指的branch
