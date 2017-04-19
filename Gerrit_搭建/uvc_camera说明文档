@@ -16,8 +16,8 @@ git push gerrit_lv HEAD:refs/for/uvc_camera
 
 1. repo init -u gerrit_lv:platform/manifest -m default.xml -b uvc_camera
 	-u:指定一个URL，其连接到一个maniest仓库		这里指定到10.4.64.226的 gerrit服务器上的 platform/manifest 库
-	-m:在manifest仓库中选择一个xml文件		使用默认的就好	
-	-b:选择一个maniest仓库中的一个特殊的分支		这边不需要指定，因为manifest中的default.xml中指明了:<default remote="gerrit_lv" revision="uvc_camera" />，指定-b会出错，还不明白为啥
+	-m:在manifest仓库中选择一个xml文件		只想选定的manifest branch下的一个特殊的xml文件，默认为default.xml
+	-b:选择一个maniest仓库中的一个特殊的分支		这里指定的是manifest仓库的branch，默认只想master 
 即： repo init -u gerrit_lv:platform/manifest
 
 2. repo sync
