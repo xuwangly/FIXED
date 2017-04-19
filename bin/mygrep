@@ -2,5 +2,5 @@
 if [ "" = "$1" ]; then  
 	echo usage: mygrep something
 else
-	grep -r --color --binary-files=without-match $1 ./*
+	grep -r $2 --color --binary-files=without-match $1 ./*
 fi

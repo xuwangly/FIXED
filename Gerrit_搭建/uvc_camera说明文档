@@ -44,7 +44,7 @@ git push gerrit_lv HEAD:refs/for/uvc_camera
 			推送已有代码到新的gerrit服务器流程说明
 ---------------------------------------------------------------------------------------------------*/
 
-1.确保本地的~/.ssh/config 文件,保存了两个 Host 以便能够同时链接 新的 和 老的 gerrit服务器
+1. 确保本地的~/.ssh/config 文件,保存了两个 Host 以便能够同时链接 新的 和 老的 gerrit服务器
 Host gerrit_lv
     HostName 10.4.64.226			//gerrit服务器地址	
     Port 29418					//gerrit服务的端口号，默认都是29418
@@ -55,15 +55,15 @@ Host gerrit_sh
     Port 29418
     User chenyue
     IdentityFile ~/.ssh/id_rsa.rapid
-2.拉取老gerrit中的源码
+2. 拉取老gerrit中的源码
 	repo init -u gerrit_sh:manifest -b littlecola_dvt
 	repo sync -j4
-3.获取projectlist
+3. 获取projectlist
 	repo forall -c 'echo $REPO_PROJECT' | tee pro.log
 	// repo forall 遍历repo下所有的git库 ，-c执行命令 echo $REPO_PROJECT 打印出REPO_PROJECT变量（很明显遍历不同的git库时，变量REPO_PROJECT值不同）
 	// | 是管道:管道左边的命令的输出会作为右边命令的输入
 	// tee 命令从管道中读取输入数据，并同时 输出到界面 和文件 pro.log中（即一份输入，两份输出）
-3. 生成sh文件，用来在gerrit创建工程库，注意加一下可执行权限
+4. 生成sh文件，用来在gerrit创建工程库，注意加一下可执行权限
 	sed 's/^/ssh -p 29418 wucaiyun@10.4.64.226 gerrit create-project /' pro.log > pro.sh
 	//http://baike.baidu.com/link?url=tz1yS3XrNfe3cDTBo0QIwAJHFd1-WizvwdyVxCqCzTnhpM9HwfESclKAqj1X04_SO9OcPkG7ajinXNKf0MwkKa
 	//sed 命令用来替换字符串，每行都会处理， 用法：sed 's/oldstring/newstring/'
