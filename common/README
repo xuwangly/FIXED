@@ -1,0 +1,12 @@
+/*******************************************************************
+			reload littlecola firmware
+********************************************************************
+adb shell
+echo -n movidius/GuzziSpi_LcaPanoCam_ma2450_ddrinit.mvcmd > sys/class/misc/myriad/boot_fw
+
+/*******************************************************************
+			linux 系统命令
+********************************************************************/
+ps aux 		//查看所有的进程信息，想看到所有进程需要切换到root	http://man.linuxde.net/ps
+
+netstat -anop 	//查看网络相关的信息，端口号 				http://man.linuxde.net/netstat
