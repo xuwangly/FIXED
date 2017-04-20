@@ -10,3 +10,18 @@ echo -n movidius/GuzziSpi_LcaPanoCam_ma2450_ddrinit.mvcmd > sys/class/misc/myria
 ps aux 		//查看所有的进程信息，想看到所有进程需要切换到root	http://man.linuxde.net/ps
 
 netstat -anop 	//查看网络相关的信息，端口号 				http://man.linuxde.net/netstat
+
+/*******************************************************************
+			ubuntu ss chrome 翻墙
+********************************************************************/
+
+https://aitanlu.com/ubuntu-shadowsocks-ke-hu-duan-pei-zhi.html
+~/shadowsocks.json
+{
+	"server":"104.224.131.158",
+	"server_port":443,
+	"local_port":1080,
+	"password":"MzY5ODExN2",
+	"timeout":600,
+	"method":"aes-256-cfb"
+}
