@@ -1,0 +1,15 @@
+1.发现是由于cpu_temp_over_100_beep 中的mt_set_pwm_disable_hal,存在空指针，暂时将在cpu_temp_over_100_beep中的操作移动到工作队列中去，不要放在中断中
+2.反编译：arm-linux-objdump -D -b binary -S -m arm out/target/product/lentk6753_65u_l1/kernel > kernel.dump
+3.在kernel的根目录的Makefile中编译 选项加入 -g
+4.反编译后没有找到具体的函数位置。。。待进一步学习
+
+
+Unable to handle kernel NULL pointer dereference at virtual address 00000000
+[    0.479478]<7>-(7)[0:swapper/7]pgd = ffffffc00007d000
+[    0.479489][00000000] *pgd=00000000be207003, *pmd=00000000be208003, *pte=00e0000010221407
+[    0.479515]<7>-(7)[0:swapper/7][KERN Warning] ERROR/WARN forces debug_lock off!
+[    0.479527]<7>-(7)[0:swapper/7][KERN Warning] check backtrace:
+...
+[    0.571756]<7>-(7)[0:swapper/7]PC is at mt_set_pwm_disable_hal+0x10/0x24
+[    0.571773]<7>-(7)[0:swapper/7]LR is at cpu_temp_over_100_beep+0x1c/0xac
+[    0.571788]<7>-(7)[0:swapper/7]pc : [<ffffffc000652ffc>] lr : [<ffffffc0006a7234>] pstate: 200001c5

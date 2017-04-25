@@ -1,0 +1,759 @@
+
+ram console header, hw_status: 2, fiq step 41.
+
+[    0.428350]<7> (7)[1:swapper/0][Auxadc] [AUXADC] ch=4 raw=1340 data=588 
+[    0.428827]<7> (7)[1:swapper/0]Power/CPU_Thermaltscpu_init
+[    0.428841]<7> (7)[1:swapper/0]Power/CPU_Thermaltscpu_thermal_clock_on
+[    0.428981]<7> (7)[1:swapper/0][THERM_CTRL] thermal_irq_number=110
+[    0.429113]<7> (7)[1:swapper/0][calibration] temp0=0x795e2000, temp1=0x1289073, temp2=0x230000
+[    0.429433]<7> (7)[1:swapper/0]Power/CPU_Thermaltscpu_update_temperature_timer_init 
+[    0.429473]<7> (7)[1:swapper/0]thermal_direct_mode_config(en:0x0,mode:0x1)
+[    0.429499]<7> (7)[1:swapper/0]thermal_direct_mode_config(en:0x1,mode:0x1)
+[    0.431523]<7> (7)[1:swapper/0]thermal_direct_mode_config(en:0x0,mode:0x1)
+[    0.431552]<7> (7)[1:swapper/0]thermal_direct_mode_config(en:0x1,mode:0x1)
+[    0.431582]<7> (7)[1:swapper/0]Power/CPU_Thermaltscpu_bind binding OK, 0
+[    0.431610]<7> (7)[1:swapper/0]Power/CPU_Thermaltscpu_bind binding OK, 4
+[    0.431635]<7> (7)[1:swapper/0]Power/CPU_Thermaltscpu_bind binding OK, 3
+[    0.431662]<7> (7)[1:swapper/0]Power/CPU_Thermaltscpu_bind binding OK, 2
+[    0.431690]<7> (7)[1:swapper/0]thermal_direct_mode_config(en:0x0,mode:0x1)
+[    0.431714]<7> (7)[1:swapper/0]thermal_direct_mode_config(en:0x1,mode:0x1)
+[    0.431736]<7> (7)[1:swapper/0]Power/CPU_Thermaltscpu_bind binding OK, 1
+[    0.432433]<7> (7)[1:swapper/0][HIB/SwSuspHlper] reg. func 1:0xffffffc0004aaa14 with device            (null)
+[    0.432566]atf_log: inited
+[    0.432596]<7> (7)[1:swapper/0]ATF reserved memory: 0xbffc0000 - 0xbfffffff (0x40000)
+[    0.432619]<7> (7)[1:swapper/0]atf_buf_phy_ctl: 0x3220963328
+[    0.432631]<7> (7)[1:swapper/0]atf_buf_len: 262144
+[    0.432643]<7> (7)[1:swapper/0]atf_buf_vir_ctl: ffffff800374a000
+[    0.432656]<7> (7)[1:swapper/0]atf_log_vir_addr: ffffff8003780100
+[    0.432667]<7> (7)[1:swapper/0]atf_log_len: 179968
+[    0.432804]<7> (7)[1:swapper/0]bma222_init
+[    0.432819]<7> (7)[1:swapper/0]<ACCELEROMETER> acc_driver_add
+[    0.432831]<7> (7)[1:swapper/0]<ACCELEROMETER> register gensor driver for the first time
+[    0.433182]<7> (7)[1:swapper/0]<ACCELEROMETER> gsensor_probe
+[    0.433246]<7> (7)[1:swapper/0][Gsensor] kxtj2_1009_init
+[    0.433260]<7> (7)[1:swapper/0][Gsensor] kxtj2_1009_init: i2c_number=2
+[    0.433275]<7> (7)[1:swapper/0]<ACCELEROMETER> acc_driver_add
+[    0.433287]<7> (7)[1:swapper/0][Device Tree] Device Tree get accel info!
+[    0.433438]<7> (7)[1:swapper/0][Device Tree] get_accel_dts_func 80 : Device Tree: can not find accel node!. Go to use old cust info
+[    0.433453]<7> (7)[1:swapper/0]<ACCELEROMETER> acc_driver_add
+[    0.433465]<7> (7)[1:swapper/0][Device Tree] Device Tree get gyro info!
+[    0.433582]<7> (7)[1:swapper/0][Device Tree] get_gyro_dts_func 283 : Device Tree: can not find gyro node!. Go to use old cust info
+[    0.433598]<7> (7)[1:swapper/0]<GYROSCOPE> ITG1010_init: i2c_number=2,i2c_addr=0x68
+[    0.433612]<7> (7)[1:swapper/0]<GYROSCOPE> gyro_driver_add
+[    0.433624]<7> (7)[1:swapper/0]<GYROSCOPE> register gyro driver for the first time
+[    0.433929]<7> (7)[1:swapper/0]<GYROSCOPE> gyroscope_probe
+[    0.433984]<7> (7)[1:swapper/0]<MAGNETIC> mag_driver_add
+[    0.433997]<7> (7)[1:swapper/0]<MAGNETIC> register mensor driver for the first time
+[    0.434307]<7> (7)[1:swapper/0]<MAGNETIC> msensor_probe
+[    0.434413]<7> (7)[1:swapper/0][WMT-DETECT][I]wmt_detect_init:driver(major 154) installed success
+[    0.434491]<2> (2)[1:swapper/0][SDIO-DETECT][I]sdio_detect_init:sdio_register_driver() ret=0
+[    0.434508]<2> (2)[1:swapper/0]3[CONN-MD-DFT]<conn_md_init> <444>
+[    0.434523]<2> (2)[1:swapper/0]3[CONN-MD-DFT][I]conn_md_init:init message queue list succeed
+[    0.434538]<2> (2)[1:swapper/0]3[CONN-MD-DFT][I]conn_md_init:init active queue list succeed
+[    0.434552]<2> (2)[1:swapper/0]3[CONN-MD-DFT][I]conn_md_init:init user information list succeed
+[    0.434606]<2> (2)[1:swapper/0]3[CONN_MD_DMP][I]conn_md_dmp_init:alloc memory for msg log system done, size:0x00000438
+[    0.434622]<2> (2)[1:swapper/0]3[CONN-MD-DFT][I]conn_md_init:conn_md_dmp_init succeed
+[    0.434759]<5> (5)[1:swapper/0]3[CONN-MD-DFT][I]conn_md_init:create conn_md_thread succeed, wakeup it
+[    0.434781]<5> (5)[1:swapper/0]3[CONN-MD-DFT]<conn_md_init> <491>
+[    0.434876]<5> (5)[1:swapper/0][ccci1/mcd]modem hw info get idx:0
+[    0.434971]<5> (5)[1:swapper/0][ccci1/mcd]modem cldma of node get dev_major:184
+[    0.434985]<5> (5)[1:swapper/0][ccci1/mcd]modem cldma of node get minor_base:0
+[    0.434998]<5> (5)[1:swapper/0][ccci1/mcd]modem cldma of node get capability:2
+[    0.435014]<5> (5)[1:swapper/0][ccci1/mcd]ap_cldma: ao_base=0xffffff800374e000, pdn_base=0xffffff8003752000
+[    0.435030]<5> (5)[1:swapper/0][ccci1/mcd]md_cldma: ao_base=0xffffff8003750000, pdn_base=0xffffff8003754000
+[    0.435046]<5> (5)[1:swapper/0][ccci1/mcd]ap_ccif_base:0xffffff8003756000, md_ccif_base:0xffffff8003758000
+[    0.435059]<5> (5)[1:swapper/0][ccci1/mcd]cldma_irq_id:177
+[    0.435072]<5> (5)[1:swapper/0][ccci1/mcd]ccif_irq_id:172
+[    0.435085]<5> (5)[1:swapper/0][ccci1/mcd]md_wdt_irq_id:255
+[    0.435112]<5> (5)[1:swapper/0][ccci1/mcd]modem CLDMA module probe
+[    0.435127]<5> (5)[1:swapper/0][ccci1/mcd]md_cldma_probe:md=ffffffc077e44000,md->private_data=ffffffc077e4e000
+[    0.435289]<0> (0)[1:swapper/0][ccci1/cor]register modem 184
+[    0.435304]<0> (0)[1:swapper/0][ccci1/mcd]CLDMA modem is initializing
+[    0.435360]<0> (0)[1:swapper/0][ccci1/mcd]cldma_sw_init is request_irq wdt(255)
+[    0.449562]<0>-(0)[0:swapper/0]thermal_interrupt_handler : THERMINTST = 0xe
+[    0.449580]<0>-(0)[0:swapper/0]Power/CPU_Thermalthermal_interrupt_handler,bank=0x00000000,ret=0x40000000
+[    0.459058]<4> (4)[1:swapper/0][ccci1/net]ccmni_init: ccmni_num=3, md_ability=0x00020002, irat_en=00000000, irat_md_id=-1, send_pkt=ffffffc000599720, get_ccmni_ch=ffffffc000599c2c, name=ccmni
+[    0.459075]<4> (4)[1:swapper/0][ccci1/net]ccmni_debug_file_init
+[    0.459172]<4> (4)[1:swapper/0][ccci1/net]register netdev name: ccmni0
+[    0.459515]<4> (4)[1:swapper/0][ccci1/net]register netdev name: ccmni1
+[    0.459798]<4> (4)[1:swapper/0][ccci1/net]register netdev name: ccmni2
+[    0.460895]<7> (7)[1:swapper/0]3[CONN-MD-DFT][W]conn_md_add_user:uid (0x00000005) is added to user list successfully
+[    0.461372][ccci1/cor]CH0 ports:ccci_ctrl(0/1) 
+[    0.461393][ccci1/cor]CH2 ports:ccci_sys(2/3) 
+[    0.461411][ccci1/cor]CH4 ports:ccci_aud(4/5) 
+[    0.461429][ccci1/cor]CH6 ports:ccci_md_log_ctrl(6/8) 
+[    0.461448][ccci1/cor]CH10 ports:ttyC0(10/12) 
+[    0.461467][ccci1/cor]CH14 ports:ccci_fs(14/15) 
+[    0.461485][ccci1/cor]CH20 ports:ccmni0(20/22) 
+[    0.461503][ccci1/cor]CH24 ports:ccmni1(24/26) 
+[    0.461521][ccci1/cor]CH28 ports:ccmni2(28/30) 
+[    0.461540][ccci1/cor]CH32 ports:ccci_rpc(32/33) 
+[    0.461558][ccci1/cor]CH34 ports:ccci_ipc_1220_0(34/36) ccci_ipc_2(34/36) ccci_ipc_3(34/36) ccci_ipc_4(34/36) ccci_ipc_5(34/36) ccci_ipc_6(34/36) 
+[    0.461606][ccci1/cor]CH38 ports:ttyC2(38/40) 
+[    0.461624][ccci1/cor]CH42 ports:ttyC1(42/43) 
+[    0.461642][ccci1/cor]CH50 ports:ccci_it(50/51) 
+[    0.461661][ccci1/cor]CH53 ports:ccci_imsv(53/52) 
+[    0.461679][ccci1/cor]CH55 ports:ccci_imsc(55/54) 
+[    0.461697][ccci1/cor]CH57 ports:ccci_imsa(57/56) 
+[    0.461716][ccci1/cor]CH59 ports:ccci_imsdc(59/58) 
+[    0.461734][ccci1/cor]CH60 ports:ttyC3(60/61) 
+[    0.461752][ccci1/cor]CH62 ports:ccci_lb_it(62/63) 
+[    0.461770][ccci1/cor]CH67 ports:ccci_poll(67/68) 
+[    0.461789][ccci1/cor]CH69 ports:ccci_monitor(69/69) 
+[    0.461807][ccci1/cor]CH70 ports:ccci_ioctl0(70/70) ccci_ioctl1(70/70) ccci_ioctl2(70/70) ccci_ioctl3(70/70) ccci_ioctl4(70/70) 
+[    0.461967]<3> (3)[1:swapper/0][ccci1/plat]4GB mode disabled, invalid_map=0x7e000000
+[    0.461988]<3> (3)[1:swapper/0][ccci1/plat]MD Smem remap:[7c000000]->[40000000](83817f7d:8b898785), invalid_map=0x7e000000
+[    0.462001][ccci1/plat]AP to MD share memory offset 0x7C000000
+[    0.462019]<3> (3)[1:swapper/0][ccci1/plat]MD ROM mem remap:[7a000000]->[0](817f7d7b:89878583)
+[    0.462050]<3> (3)[1:swapper/0][ccci1/cor]ccci_platform_init: set MD1[3:2] & MD3[5:4] SRCLKEN infra_misc(0x1000_0338), bit[5:2]=0x24
+[    0.463563]<3> (3)[1:swapper/0]====spidev_init xxxxxchad.
+[    0.463623]<3> (3)[1:swapper/0]====spi_register_driver status 0.
+[    0.463753]<3> (3)[1:swapper/0][jason] device name: myriad0 
+[    0.463841]<3> (3)[1:swapper/0][jason] device name: myriad1 
+[    0.463932]<3> (3)[1:swapper/0][jason] device name: myriad2 
+[    0.464019]<3> (3)[1:swapper/0][jason] device name: myriad3 
+[    0.464105]<3> (3)[1:swapper/0][jason] device name: myriad4 
+[    0.464191]<3> (3)[1:swapper/0][jason] device name: myriad5 
+ (3)[1:swapper/0][PMIC] [register_low_battery_notify] start
+[    0.464475]<3> (3)[1:swapper/0][PMIC] [register_low_battery_notify] prio_val=5
+[    0.464486]<3> (3)[1:swapper/0][PMIC] [register_battery_percent_notify] start
+[    0.464499]<3> (3)[1:swapper/0][PMIC] [register_battery_percent_notify] prio_val=5
+[    0.464520]<3> (3)[1:swapper/0]mtk_rtc_common: rtc_init[    0.465742]<3> (3)[1:swapper/0]mtk_rtc_common: read al time = 1970/01/01 00:00:51 (0)
+[    0.466670]<3> (3)[1:swapper/0][PMIC] [pmic_register_interrupt_callback] intno=9 
+[    0.466693]<3> (3)[1:swapper/0][PMIC] [pmic_enable_interrupt] intno=9 en=1 str=RTC shf=0 no=9 [0x2ac]=0x8f
+[    0.466721]<3> (3)[1:swapper/0][PMIC] [pmic_enable_interrupt] after [0x2ac]=0x28f
+[    0.466775][BOOT_COMMON] boot_mode = 0, state(2,0,1)
+[    0.466791]<3> (3)[1:swapper/0][BOOT] [create_sysfs] No atag,meta found !
+[    0.466806][BOOT_REASON] boot_reason = 4, state(2,0,1)[GPIO] version: mt-gpio
+[    0.466889]<3> (3)[1:swapper/0][GPIO] Registering GPIO device
+[    0.467219]<3> (3)[1:swapper/0]kpd: kp base: 0xffffff80037d2000, addr:0xffffffc00113b9e0,  kp irq: 196
+[    0.467241]<3> (3)[1:swapper/0]kpd: init_keymap_state done: ffff ffff ffff ffff ff!
+[    0.467532]<3> (3)[1:swapper/0]kpd: kpd_pdrv_probe Done
+[    0.468169]<3> (3)[1:swapper/0][UART 0] create
+[    0.468183]<3> (3)[1:swapper/0][UART 0] idx= 0
+[    0.468240]<3> (3)[1:swapper/0][ 0] ffffff80037d4000 (1024) ;
+[    0.468253]<3> (3)[1:swapper/0][UART 0] idx= 1
+[    0.468317]<3> (3)[1:swapper/0][ 1] ffffff80037d6000 (1024) ;
+[    0.468328]<3> (3)[1:swapper/0]
+[    0.468461]<3> (3)[1:swapper/0][UART 1] create
+[    0.468474]<3> (3)[1:swapper/0][UART 1] idx= 2
+[    0.468523]<3> (3)[1:swapper/0][ 2] ffffff80037d8000 (8192) ;
+[    0.468536]<3> (3)[1:swapper/0][UART 1] idx= 3
+[    0.468581]<3> (3)[1:swapper/0][ 3] ffffff80037db000 (8192) ;
+[    0.468592]<3> (3)[1:swapper/0]
+[    0.468718]<3> (3)[1:swapper/0][UART 2] create
+[    0.468731]<3> (3)[1:swapper/0][UART 2] idx= 4
+[    0.468778]<3> (3)[1:swapper/0][ 4] ffffff80037de000 (8192) ;
+[    0.468791]<3> (3)[1:swapper/0][UART 2] idx= 5
+[    0.468836]<3> (3)[1:swapper/0][ 5] ffffff80037e1000 (8192) ;
+[    0.468847]<3> (3)[1:swapper/0]
+[    0.468978]<3> (3)[1:swapper/0][UART 3] not support VFF, Cancel alloc
+[    0.469113]<3> (3)[1:swapper/0][UART 4] not support VFF, Cancel alloc
+[    0.469520]<3> (3)[1:swapper/0][ccci\ssw] sim_switch_driver_init
+[    0.469648]<3> (3)[1:swapper/0][ccci\ssw] sim_switch_init
+[    0.469678]<3> (3)[1:swapper/0][ccci\ssw] SIM1 sclk= en=0,dir=1,in=0,out=0
+[    0.469696]<3> (3)[1:swapper/0][ccci\ssw] SIM1 srst= en=0,dir=1,in=0,out=0
+[    0.469709]<0>-(0)[0:swapper/0]3[ccci\ssw] SIM1 sio= en=1,dir=0,in=0,out=0
+[    0.469714]<0> (3)[1:swapper/0][ccci\ssw] SIM1 sio= en=1,dir=0,in=0,out=0
+[    0.469725]<0> (3)[1:swapper/0][ccci\ssw] SIM2 sclk= en=0,dir=1,in=0,out=0
+[    0.469736]<0> (3)[1:swapper/0][ccci\ssw] SIM2 srst= en=0,dir=1,in=0,out=0
+[    0.469746]<0> (3)[1:swapper/0][ccci\ssw] SIM2 sio= en=1,dir=0,in=0,out=0
+[    0.469754]<0> (3)[1:swapper/0][ccci\ssw] set_sim_gpio: 1
+[    0.469775]<3> (3)[1:swapper/0] , sio=1)
+[    0.469780]<3>-(0)[0:swapper/0]Power/CPU_Thermalthermal_interrupt_handler,bank=0x00000002,ret=0x40000000
+[    0.469795]<3>-(0)[0:swapper/0]thermal_interrupt_handler : THERMINTST = 0xd
+[    0.469804]<3>-(0)[0:swapper/0]Power/CPU_Thermalthermal_interrupt_handler,bank=0x00000001,ret=0x40000000
+[    0.470269]<3> (3)[1:swapper/0][MALI]Using mali midgard r5p0-EAC DDK kernel device driver. GPU probe() begin
+[    0.473886]<3> (3)[1:swapper/0][MALI] _mtk_gpu_dvfs_init
+[    0.473903]<3> (3)[1:swapper/0][MALI] mtk_kbase_custom_boost_gpu_freq() ui32FreqLevel=0, g_custom_gpu_boost_id=1[MALI] mtk_kbase_set_bottom_gpu_freq_fp() ui32FreqLevel=0, g_custom_gpu_boost_id=1  (GED boost)
+[    0.475232]<1> (1)[1:swapper/0][MALI]Using mali midgard r5p0-02dev0 DDK kernel device driver. GPU probe() end
+[    0.475355]<1> (1)[1:swapper/0][EMI MPU] Initialize EMI MPU.
+[    0.475457]<1> (1)[1:swapper/0]get EMI_BASE_ADDR @ ffffff80037ee000
+[    0.475509]<1> (1)[1:swapper/0]get EMI_MPU irq = 166
+[    0.475522]<1> (1)[1:swapper/0][EMI MPU] EMI_MPUP = 0x2 
+[    0.475534]<1> (1)[1:swapper/0][EMI MPU] EMI_MPUQ = 0x0 
+[    0.475546]<1> (1)[1:swapper/0][EMI MPU] EMI_MPUR = 0x0 
+[    0.475558]<1> (1)[1:swapper/0][EMI MPU] EMI_MPUY = 0x0 
+[    0.475571]<1> (1)[1:swapper/0][EMI MPU] EMI_MPUP2 = 0x0 
+[    0.475582]<1> (1)[1:swapper/0][EMI MPU] EMI_MPUQ2 = 0x0 
+[    0.475594]<1> (1)[1:swapper/0][EMI MPU] EMI_MPUR2 = 0x0 
+[    0.475606]<1> (1)[1:swapper/0][EMI MPU] EMI_MPUY2 = 0x0 
+[    0.475619]<1> (1)[1:swapper/0][EMI MPU] EMI_MPUS = 0x20010820 
+[    0.475646]<1> (1)[1:swapper/0][EMI MPU] EMI_MPUT = 0x3007880 
+[    0.475659]<1> (1)[1:swapper/0][EMI MPU] EMI_WP_ADR = 0x0 
+[    0.475671]<1> (1)[1:swapper/0][EMI MPU] EMI_WP_CTRL = 0x0 
+[    0.475683]<1> (1)[1:swapper/0][EMI MPU] EMI_CHKER = 0x0 
+[    0.475696]<1> (1)[1:swapper/0][EMI MPU] EMI_CHKER_TYPE = 0x0 
+[    0.475708]<1> (1)[1:swapper/0][EMI MPU] EMI_CHKER_ADR = 0x0 
+[    0.475791]<1> (1)[1:swapper/0][EMI MPU] Not 4G mode 
+[    0.475825]<1> (1)[1:swapper/0][EMI] protect_ap_region 0x40000000~0xbfffffff   ,dram size=0x80000000
+[    0.475842]<1> (1)[1:swapper/0][EMI] EMI_CONA =  0x2a052 
+[    0.475854]<1> (1)[1:swapper/0][EMI] Support channel number 2 
+[    0.475867]<1> (1)[1:swapper/0][EMI] Channel 0 : rank 0 : 8 Gb, segment no : 8 
+[    0.475880]<1> (1)[1:swapper/0][EMI] Channel 0 : rank 1 : 8 Gb, segment no : 8 
+[    0.475893]<1> (1)[1:swapper/0][EMI] Channel 1 : rank 0 : 0 Gb, segment no : 0 
+[    0.475906]<1> (1)[1:swapper/0][EMI] Channel 1 : rank 1 : 0 Gb, segment no : 0 
+[    0.476180]<5> (5)[1:swapper/0]JPEG Codec initialize
+[    0.476193]<5> (5)[1:swapper/0]Register the JPEG Codec driver
+[    0.476793]<5> (5)[1:swapper/0]request JPEG Encoder IRQ 
+[    0.476826]<5> (5)[1:swapper/0]request JPEG Decoder IRQ 
+[    0.476847]<5> (5)[1:swapper/0]JPEG Probe Done
+[    0.477316]<5> (5)[1:swapper/0][sec] sec_init (0)
+[    0.477728]<5> (5)[1:swapper/0][sd]of msdc DT probe MSDC0! 
+[    0.477761]<5> (5)[1:swapper/0][sd]of_iomap for msdc @ 0xffffff8003800000
+[    0.477784]<5> (5)[1:swapper/0]msdc get irq # 111
+[    0.477876]<5> (5)[1:swapper/0][sd]of_iomap for gpio base @ 0xffffff80037fc000
+[    0.478058]<5> (5)[1:swapper/0][sd]of_iomap for APMIXED base @ 0xffffff800381a000
+[    0.478109]<5> (5)[1:swapper/0][sd]of_iomap for TOPCKGEN base @ 0xffffff800381c000
+[    0.478123]<5> (5)[1:swapper/0][sd]platform_data hw:0xffffffc000dff6f0, is msdc0_hw 
+[    0.478335]<5> (5)[1:swapper/0][sd]msdc0 -> msdc drving<clk 2,cmd 2,dat 2> <- msdc_init_hw() : L<8936> PID<swapper/0><0x1>
+[    0.478477]<5> (5)[1:swapper/0][sd]msdc LDO<12> power on<3000000>
+[    0.478505]<5> (5)[1:swapper/0][PMIC] regulator_is_enabled(name=VEMC_3V3 id=0 en_reg=57d vol_reg=64b en=1)
+[    0.478525]<5> (5)[1:swapper/0][PMIC] regulator_set_voltage_sel(name=VEMC_3V3 id=0 en_reg=57d vol_reg=64b selector=2)
+[    0.478555]<5> (5)[1:swapper/0][PMIC] regulator_is_enabled(name=VEMC_3V3 id=0 en_reg=57d vol_reg=64b en=1)
+[    0.478578]<5> (5)[1:swapper/0][PMIC] regulator_is_enabled(name=VEMC_3V3 id=0 en_reg=57d vol_reg=64b en=1)
+[    0.478619]<5> (5)[1:swapper/0][PMIC] hwPowerOn:12:VEMC_3V3 volt:3000000 name:msdc cnt:1
+[    0.478622]<5> (5)[1:swapper/0][sd]0: VEMC_EN[0x0A24]=0xc102, should:bit1=1, VEMC_VOL[0x0A64]=0x8f20,should:[bit[5:4]=2b'10]
+[    0.478622]<5>
+[    0.479463]<7>-(7)[0:swapper/7]Unable to handle kernel NULL pointer dereference at virtual address 00000000
+[    0.479478]<7>-(7)[0:swapper/7]pgd = ffffffc00007d000
+[    0.479489][00000000] *pgd=00000000be207003, *pmd=00000000be208003, *pte=00e0000010221407
+[    0.479515]<7>-(7)[0:swapper/7][KERN Warning] ERROR/WARN forces debug_lock off!
+[    0.479527]<7>-(7)[0:swapper/7][KERN Warning] check backtrace:
+[    0.479546]<7>-(7)[0:swapper/7]CPU: 7 PID: 0 Comm: swapper/7 Tainted: G        W    3.10.65+ #1
+[    0.479558]<7>-(7)[0:swapper/7]Call trace:
+[    0.479582]<7>-(7)[0:swapper/7][<ffffffc000088f50>] dump_backtrace+0x0/0x16c
+[    0.479603]<7>-(7)[0:swapper/7][<ffffffc0000890cc>] show_stack+0x10/0x1c
+[    0.479623]<7>-(7)[0:swapper/7][<ffffffc0009bc920>] dump_stack+0x1c/0x28
+[    0.479645]<7>-(7)[0:swapper/7][<ffffffc0002f7190>] debug_locks_off+0x40/0x5c
+[    0.479664]<7>-(7)[0:swapper/7][<ffffffc00009a260>] oops_enter+0xc/0x28
+[    0.479684]<7>-(7)[0:swapper/7][<ffffffc000089100>] die+0x28/0x1d8
+[    0.479703]<7>-(7)[0:swapper/7][<ffffffc0009ba96c>] __do_kernel_fault.part.5+0x70/0x84
+[    0.479725]<7>-(7)[0:swapper/7][<ffffffc000094260>] do_page_fault+0x348/0x34c
+[    0.479745]<7>-(7)[0:swapper/7][<ffffffc000094350>] do_translation_fault+0x40/0x4c
+[    0.479763]<7>-(7)[0:swapper/7][<ffffffc0000813fc>] do_mem_abort+0x38/0x98
+[    0.479779]<7>-(7)[0:swapper/7]Exception stack(0xffffffc07d89f9d0 to 0xffffffc07d89fba4)
+[    0.479798]<7>-(7)[0:swapper/7]f9c0:                                     00e631e0 ffffffc0 7d89c000 ffffffc0
+[    0.479818]<7>-(7)[0:swapper/7]f9e0: 7d89fb90 ffffffc0 00652ffc ffffffc0 00d93a40 ffffffc0 7e3b2a40 ffffffc0
+[    0.479837]<7>-(7)[0:swapper/7]fa00: 00000001 00000000 7d89fbc8 ffffffc0 00000000 ffffffc0 009c9304 ffffffc0
+[    0.479856]<7>-(7)[0:swapper/7]fa20: 7d89fc8c ffffffc0 00f31070 ffffffff 00000010 00000000 00000007 00000000
+[    0.479876]<7>-(7)[0:swapper/7]fa40: 7d89fa70 ffffffc0 00188584 ffffffc0 7d89fa70 ffffffc0 00188670 ffffffc0
+[    0.479896]<7>-(7)[0:swapper/7]fa60: 7d89fa90 ffffffc0 000a2d10 ffffffc0 00000001 00000000 0115d000 ffffffc0
+[    0.479915]<7>-(7)[0:swapper/7]fa80: 00000000 00000000 fffe2244 00000000 00001be9 00000000 0000011d 00000000
+[    0.479934]<7>-(7)[0:swapper/7]faa0: 0105cb90 ffffffc0 00000b51 00000000 0105c000 ffffffc0 00000000 00000000
+[    0.479953]<7>-(7)[0:swapper/7]fac0: 00000000 00000000 635d575b 5f6e6e6f 00000003 00000000 3a726573 20646975
+[    0.479972]<7>-(7)[0:swapper/7]fae0: 30783028 30303030 00000000 00000000 00000000 00000000 00000000 00000000
+[    0.479992]<7>-(7)[0:swapper/7]fb00: 00000007 00000000 00e631e0 ffffffc0 0105cb90 ffffffc0 00000001 00000000
+[    0.480011]<7>-(7)[0:swapper/7]fb20: 0105c000 ffffffc0 00e08650 ffffffc0 00c44b70 ffffffc0 0105cd18 ffffffc0
+[    0.480031]<7>-(7)[0:swapper/7]fb40: 00000003 00000000 7e3aec88 ffffffc0 ffffffff 7fffffff 7d89fb90 ffffffc0
+[    0.480050]<7>-(7)[0:swapper/7]fb60: 006a7234 ffffffc0 7d89fb90 ffffffc0 00652ffc ffffffc0 200001c5 00000000
+[    0.480069]<7>-(7)[0:swapper/7]fb80: 7d89fb90 ffffffc0 0039e518 ffffffc0 7d89fbb0 ffffffc0 004a7dd8 ffffffc0
+[    0.480083]<7>-(7)[0:swapper/7]fba0: 00000000
+[    0.480100]<7>-(7)[0:swapper/7][<ffffffc000083c58>] el1_da+0x1c/0x88
+[    0.480124]<7>-(7)[0:swapper/7][<ffffffc0004a7dd4>] read_all_bank_temperature+0x140/0x16c
+[    0.480144]<7>-(7)[0:swapper/7][<ffffffc0004a7ea8>] tscpu_update_tempinfo+0xa8/0xb8
+[    0.480167]<7>-(7)[0:swapper/7][<ffffffc0000c200c>] __run_hrtimer+0x7c/0x230
+[    0.480184]<7>-(7)[0:swapper/7][<ffffffc0000c2d6c>] hrtimer_interrupt+0x10c/0x288
+[    0.480207]<7>-(7)[0:swapper/7][<ffffffc000382a20>] arch_timer_handler_phys+0x28/0x38
+[    0.480230]<7>-(7)[0:swapper/7][<ffffffc000121c20>] handle_percpu_devid_irq+0xa0/0x17c
+[    0.480249]<7>-(7)[0:swapper/7][<ffffffc00011e074>] generic_handle_irq+0x30/0x4c
+[    0.480268]<7>-(7)[0:swapper/7][<ffffffc0000848e4>] handle_IRQ+0x94/0x1c4
+[    0.480285]<7>-(7)[0:swapper/7][<ffffffc000081608>] gic_handle_irq+0x40/0x84
+[    0.480300]<7>-(7)[0:swapper/7]Exception stack(0xffffffc07d89fe20 to 0xffffffc07d89fff4)
+[    0.480319]<7>-(7)[0:swapper/7]fe20: 7d89c000 ffffffc0 7d89c000 ffffffc0 7d89ff60 ffffffc0 00085510 ffffffc0
+[    0.480339]<7>-(7)[0:swapper/7]fe40: 00000000 00000000 00000000 00000000 7e3af9c4 ffffffc0 00010000 00000000
+[    0.480358]<7>-(7)[0:swapper/7]fe60: 00000000 00000000 00dbb5c8 ffffffc0 7d61f000 00000000 00000000 00000000
+[    0.480378]<7>-(7)[0:swapper/7]fe80: 00000019 00000000 7d89fd70 ffffffc0 00000000 00000000 635d575b 5f6e6e6f
+[    0.480397]<7>-(7)[0:swapper/7]fea0: 00000003 00000000 3a726573 20646975 30783028 30303030 00000000 00000000
+[    0.480416]<7>-(7)[0:swapper/7]fec0: 00000000 00000000 00000000 00000000 00000007 00000000 7d89c000 ffffffc0
+[    0.480436]<7>-(7)[0:swapper/7]fee0: 7d89c000 ffffffc0 7d89c000 ffffffc0 00eb1000 ffffffc0 00f09604 ffffffc0
+[    0.480455]<7>-(7)[0:swapper/7]ff00: 009cf000 ffffffc0 00eb1269 ffffffc0 00bb75e0 ffffffc0 00000001 00000000
+[    0.480475]<7>-(7)[0:swapper/7]ff20: 400801d8 00000000 7d89ff60 ffffffc0 0008550c ffffffc0 7d89ff60 ffffffc0
+[    0.480494]<7>-(7)[0:swapper/7]ff40: 00085510 ffffffc0 60000145 00000000 7d89c000 ffffffc0 00eb1000 ffffffc0
+[    0.480514]<7>-(7)[0:swapper/7]ff60: 7d89ff70 ffffffc0 00100018 ffffffc0 7d89ffd0 ffffffc0 009b76f4 ffffffc0
+[    0.480533]<7>-(7)[0:swapper/7]ff80: 00000007 00000000 00000000 00000000 00ee1228 ffffffc0 410fd034 00000000
+[    0.480552]<7>-(7)[0:swapper/7]ffa0: 40dae028 00000000 40000000 00000000 4007b000 00000000 4007d000 00000000
+[    0.480572]<7>-(7)[0:swapper/7]ffc0: 000801f0 ffffffc0 400801d8 00000000 00000000 00000000 400801d8 00000000
+[    0.480589]<7>-(7)[0:swapper/7]ffe0: 00000000 00000000 00000000 00000000 ffffffff
+[    0.480607]<7>-(7)[0:swapper/7][<ffffffc000083e40>] el1_irq+0x80/0xec
+[    0.480629]<7>-(7)[0:swapper/7][<ffffffc000100014>] cpu_startup_entry+0x1e0/0x22c
+[    0.480648]<7>-(7)[0:swapper/7][<ffffffc0009b76f0>] secondary_start_kernel+0x1e8/0x208
+[    0.480663]<7>-(7)[0:swapper/7]Internal error: Oops: 96000005 [#1] PREEMPT SMP
+[    0.480675]disable aee kernel api
+[    0.480735]<7>-(7)[0:swapper/7]mrdump: cpu[7] tsk:ffffffc003074000 ti:ffffffc07d89c000
+[    0.480937]<5>-(5)[1:swapper/0]CPU5: stopping
+[    0.480960]<5>-(5)[1:swapper/0]CPU: 5 PID: 1 Comm: swapper/0 Tainted: G        W    3.10.65+ #1
+[    0.480972]<5>-(5)[1:swapper/0]Call trace:
+[    0.480997]<5>-(5)[1:swapper/0][<ffffffc000088f50>] dump_backtrace+0x0/0x16c
+[    0.481017]<5>-(5)[1:swapper/0][<ffffffc0000890cc>] show_stack+0x10/0x1c
+[    0.481038]<5>-(5)[1:swapper/0][<ffffffc0009bc920>] dump_stack+0x1c/0x28
+[    0.481057]<5>-(5)[1:swapper/0][<ffffffc00008f8bc>] handle_IPI+0x254/0x264
+[    0.481075]<5>-(5)[1:swapper/0][<ffffffc000081644>] gic_handle_irq+0x7c/0x84
+[    0.481091]<5>-(5)[1:swapper/0]Exception stack(0xffffffc07d85f7f0 to 0xffffffc07d85f9c4)
+[    0.481109]<5>-(5)[1:swapper/0]f7e0:                                     7d85f978 ffffffc0 000032c8 00000000
+[    0.481129]<5>-(5)[1:swapper/0]f800: 7d85f930 ffffffc0 00382ad0 ffffffc0 005f61be 00000000 00000e81 00000000
+[    0.481148]<5>-(5)[1:swapper/0]f820: 0001fbd0 00000000 00000001 00000000 0000c000 ffffff80 0000000a 00000000
+[    0.481168]<5>-(5)[1:swapper/0]f840: 0000f328 00000000 00000092 00000000 0000fc40 00000000 000009aa 00000000
+[    0.481188]<5>-(5)[1:swapper/0]f860: 00ba92d8 ffffffc0 41307830 3d5d3432 00000001 00000000 756f6873 623a646c
+[    0.481207]<5>-(5)[1:swapper/0]f880: 3d317469 56202c31 00000000 00000000 00000000 00000000 00000000 00000000
+[    0.481226]<5>-(5)[1:swapper/0]f8a0: 00000007 00000000 7d85f978 ffffffc0 000032c8 00000000 00000001 00000000
+[    0.481245]<5>-(5)[1:swapper/0]f8c0: 78149238 ffffffc0 00dff6f0 ffffffc0 00000000 00000000 78149578 ffffffc0
+[    0.481265]<5>-(5)[1:swapper/0]f8e0: 00000000 00000000 78149540 ffffffc0 03800000 ffffff80 7d85f930 ffffffc0
+[    0.481284]<5>-(5)[1:swapper/0]f900: 00088ddc ffffffc0 7d85f930 ffffffc0 00382ad0 ffffffc0 80000105 00000000
+[    0.481304]<5>-(5)[1:swapper/0]f920: 005dc640 ffffffc0 0000fffd 00000000 7d85f950 ffffffc0 002e8cc8 ffffffc0
+[    0.481324]<5>-(5)[1:swapper/0]f940: 005f533c 00000000 0061e4a4 ffffffc0 7d85f980 ffffffc0 002e8d08 ffffffc0
+[    0.481343]<5>-(5)[1:swapper/0]f960: 00000008 00000000 78149540 ffffffc0 7d85f990 ffffffc0 005f61bd 00000000
+[    0.481363]<5>-(5)[1:swapper/0]f980: 7d85f990 ffffffc0 0061c8c0 ffffffc0 7d85f9c0 ffffffc0 00625830 ffffffc0
+[    0.481383]<5>-(5)[1:swapper/0]f9a0: 78149540 ffffffc0 78149000 ffffffc0 03800000 ffffff80 00625824 ffffffc0
+[    0.481396]<5>-(5)[1:swapper/0]f9c0: 7d85fab0
+[    0.481414]<5>-(5)[1:swapper/0][<ffffffc000083e40>] el1_irq+0x80/0xec
+[    0.481436]<5>-(5)[1:swapper/0][<ffffffc0002e8cc4>] __delay+0x24/0x44
+[    0.481455]<5>-(5)[1:swapper/0][<ffffffc0002e8d04>] __const_udelay+0x20/0x2c
+[    0.481477]<5>-(5)[1:swapper/0][<ffffffc00061c8bc>] msdc_set_power_mode+0xd8/0x1e0
+[    0.481499]<5>-(5)[1:swapper/0][<ffffffc00062582c>] msdc_ops_set_ios+0x788/0xdc0
+[    0.481518]<5>-(5)[1:swapper/0][<ffffffc000764bf0>] mmc_power_up+0x78/0x1ac
+[    0.481537]<5>-(5)[1:swapper/0][<ffffffc0007682e0>] mmc_start_host+0x34/0x6c
+[    0.481555]<5>-(5)[1:swapper/0][<ffffffc000769688>] mmc_add_host+0x5c/0xb4
+[    0.481576]<5>-(5)[1:swapper/0][<ffffffc000623d50>] msdc_drv_probe+0xcc0/0x11ec
+[    0.481600]<5>-(5)[1:swapper/0][<ffffffc0003658fc>] platform_drv_probe+0x18/0x24
+[    0.481622]<5>-(5)[1:swapper/0][<ffffffc00036407c>] driver_probe_device+0xa8/0x468
+[    0.481642]<5>-(5)[1:swapper/0][<ffffffc000364528>] __driver_attach+0x98/0xa0
+[    0.481663]<5>-(5)[1:swapper/0][<ffffffc000362314>] bus_for_each_dev+0x54/0x98
+[    0.481684]<5>-(5)[1:swapper/0][<ffffffc000363f68>] driver_attach+0x1c/0x28
+[    0.481704]<5>-(5)[1:swapper/0][<ffffffc000362e4c>] bus_add_driver+0x1c8/0x284
+[    0.481725]<5>-(5)[1:swapper/0][<ffffffc000364d68>] driver_register+0x64/0x15c
+[    0.481743]<5>-(5)[1:swapper/0][<ffffffc00036655c>] platform_driver_register+0x58/0x64
+[    0.481765]<5>-(5)[1:swapper/0][<ffffffc000d63b70>] mt_msdc_init+0x14/0x94
+[    0.481787]<5>-(5)[1:swapper/0][<ffffffc000d37840>] do_one_initcall+0xd0/0x1e0
+[    0.481808]<5>-(5)[1:swapper/0][<ffffffc000d37a88>] kernel_init_freeable+0x138/0x1e0
+[    0.481829]<5>-(5)[1:swapper/0][<ffffffc0009b43c4>] kernel_init+0x18/0x154
+[    0.481843]<4>-(4)[0:swapper/4]CPU4: stopping
+[    0.481861]<4>-(4)[0:swapper/4]CPU: 4 PID: 0 Comm: swapper/4 Tainted: G        W    3.10.65+ #1
+[    0.481872]<4>-(4)[0:swapper/4]Call trace:
+[    0.481894]<4>-(4)[0:swapper/4][<ffffffc000088f50>] dump_backtrace+0x0/0x16c
+[    0.481914]<4>-(4)[0:swapper/4][<ffffffc0000890cc>] show_stack+0x10/0x1c
+[    0.481933]<4>-(4)[0:swapper/4][<ffffffc0009bc920>] dump_stack+0x1c/0x28
+[    0.481951]<4>-(4)[0:swapper/4][<ffffffc00008f8bc>] handle_IPI+0x254/0x264
+[    0.481968]<4>-(4)[0:swapper/4][<ffffffc000081644>] gic_handle_irq+0x7c/0x84
+[    0.481984]<4>-(4)[0:swapper/4]Exception stack(0xffffffc07d893e20 to 0xffffffc07d893ff4)
+[    0.482003]<4>-(4)[0:swapper/4]3e20: 7d890000 ffffffc0 7d890000 ffffffc0 7d893f60 ffffffc0 00085510 ffffffc0
+[    0.482023]<4>-(4)[0:swapper/4]3e40: 00000000 00000000 00000000 00000000 7e38e9c4 ffffffc0 00010000 00000000
+[    0.482043]<4>-(4)[0:swapper/4]3e60: 00000000 00000000 00dbb5c8 ffffffc0 7d5fe000 00000000 00000000 00000000
+[    0.482062]<4>-(4)[0:swapper/4]3e80: 00000019 00000000 7d893d70 ffffffc0 00ba92c8 ffffffc0 00000058 00000000
+[    0.482081]<4>-(4)[0:swapper/4]3ea0: 00000006 00000000 00005180 00000000 00020000 00000000 0000001a 00000000
+[    0.482100]<4>-(4)[0:swapper/4]3ec0: 00000014 00000000 0000000e 00000000 00000007 00000000 7d890000 ffffffc0
+[    0.482120]<4>-(4)[0:swapper/4]3ee0: 7d890000 ffffffc0 7d890000 ffffffc0 00eb1000 ffffffc0 00f09604 ffffffc0
+[    0.482139]<4>-(4)[0:swapper/4]3f00: 009cf000 ffffffc0 00eb1269 ffffffc0 00bb75e0 ffffffc0 00000001 00000000
+[    0.482159]<4>-(4)[0:swapper/4]3f20: 400801d8 00000000 7d893f60 ffffffc0 0008550c ffffffc0 7d893f60 ffffffc0
+[    0.482178]<4>-(4)[0:swapper/4]3f40: 00085510 ffffffc0 60000105 00000000 7d890000 ffffffc0 00eb1000 ffffffc0
+[    0.482198]<4>-(4)[0:swapper/4]3f60: 7d893f70 ffffffc0 00100018 ffffffc0 7d893fd0 ffffffc0 009b76f4 ffffffc0
+[    0.482217]<4>-(4)[0:swapper/4]3f80: 00000004 00000000 00000000 00000000 00ee1228 ffffffc0 410fd034 00000000
+[    0.482236]<4>-(4)[0:swapper/4]3fa0: 40dae028 00000000 40000000 00000000 4007b000 00000000 4007d000 00000000
+[    0.482255]<4>-(4)[0:swapper/4]3fc0: 000801f0 ffffffc0 400801d8 00000000 00000000 00000000 400801d8 00000000
+[    0.482272]<4>-(4)[0:swapper/4]3fe0: 00000000 00000000 00000000 00000000 fbfffffe
+[    0.482290]<4>-(4)[0:swapper/4][<ffffffc000083e40>] el1_irq+0x80/0xec
+[    0.482313]<4>-(4)[0:swapper/4][<ffffffc000100014>] cpu_startup_entry+0x1e0/0x22c
+[    0.482332]<4>-(4)[0:swapper/4][<ffffffc0009b76f0>] secondary_start_kernel+0x1e8/0x208
+[    0.482346]<6>-(6)[0:swapper/6]CPU6: stopping
+[    0.482364]<6>-(6)[0:swapper/6]CPU: 6 PID: 0 Comm: swapper/6 Tainted: G        W    3.10.65+ #1
+[    0.482376]<6>-(6)[0:swapper/6]Call trace:
+[    0.482397]<6>-(6)[0:swapper/6][<ffffffc000088f50>] dump_backtrace+0x0/0x16c
+[    0.482417]<6>-(6)[0:swapper/6][<ffffffc0000890cc>] show_stack+0x10/0x1c
+[    0.482436]<6>-(6)[0:swapper/6][<ffffffc0009bc920>] dump_stack+0x1c/0x28
+[    0.482455]<6>-(6)[0:swapper/6][<ffffffc00008f8bc>] handle_IPI+0x254/0x264
+[    0.482472]<6>-(6)[0:swapper/6][<ffffffc000081644>] gic_handle_irq+0x7c/0x84
+[    0.482488]<6>-(6)[0:swapper/6]Exception stack(0xffffffc07d89be20 to 0xffffffc07d89bff4)
+[    0.482507]<6>-(6)[0:swapper/6]be20: 7d898000 ffffffc0 7d898000 ffffffc0 7d89bf60 ffffffc0 00085510 ffffffc0
+[    0.482527]<6>-(6)[0:swapper/6]be40: 00000000 00000000 00000000 00000000 7e3a49c4 ffffffc0 00010000 00000000
+[    0.482546]<6>-(6)[0:swapper/6]be60: 00000000 00000000 00dbb5c8 ffffffc0 7d614000 00000000 00000000 00000000
+[    0.482566]<6>-(6)[0:swapper/6]be80: 00000019 00000000 7d89bd70 ffffffc0 00ba92d8 ffffffc0 00000050 00000000
+[    0.482585]<6>-(6)[0:swapper/6]bea0: 00000001 00000000 00002d28 00000000 00020000 00000000 0000001a 00000000
+[    0.482604]<6>-(6)[0:swapper/6]bec0: 00000014 00000000 0000000e 00000000 00000007 00000000 7d898000 ffffffc0
+[    0.482623]<6>-(6)[0:swapper/6]bee0: 7d898000 ffffffc0 7d898000 ffffffc0 00eb1000 ffffffc0 00f09604 ffffffc0
+[    0.482642]<6>-(6)[0:swapper/6]bf00: 009cf000 ffffffc0 00eb1269 ffffffc0 00bb75e0 ffffffc0 00000001 00000000
+[    0.482662]<6>-(6)[0:swapper/6]bf20: 400801d8 00000000 7d89bf60 ffffffc0 0008550c ffffffc0 7d89bf60 ffffffc0
+[    0.482682]<6>-(6)[0:swapper/6]bf40: 00085510 ffffffc0 60000105 00000000 7d898000 ffffffc0 00eb1000 ffffffc0
+[    0.482701]<6>-(6)[0:swapper/6]bf60: 7d89bf70 ffffffc0 00100018 ffffffc0 7d89bfd0 ffffffc0 009b76f4 ffffffc0
+[    0.482720]<6>-(6)[0:swapper/6]bf80: 00000006 00000000 00000000 00000000 00ee1228 ffffffc0 410fd034 00000000
+[    0.482739]<6>-(6)[0:swapper/6]bfa0: 40dae028 00000000 40000000 00000000 4007b000 00000000 4007d000 00000000
+[    0.482759]<6>-(6)[0:swapper/6]bfc0: 000801f0 ffffffc0 400801d8 00000000 00000000 00000000 400801d8 00000000
+[    0.482776]<6>-(6)[0:swapper/6]bfe0: 00000000 00000000 00000000 00000000 fbfffffe
+[    0.482794]<6>-(6)[0:swapper/6][<ffffffc000083e40>] el1_irq+0x80/0xec
+[    0.482815]<6>-(6)[0:swapper/6][<ffffffc000100014>] cpu_startup_entry+0x1e0/0x22c
+[    0.482833]<6>-(6)[0:swapper/6][<ffffffc0009b76f0>] secondary_start_kernel+0x1e8/0x208
+[    0.482848]<3>-(3)[0:swapper/3]CPU3: stopping
+[    0.482867]<3>-(3)[0:swapper/3]CPU: 3 PID: 0 Comm: swapper/3 Tainted: G        W    3.10.65+ #1
+[    0.482879]<3>-(3)[0:swapper/3]Call trace:
+[    0.482901]<3>-(3)[0:swapper/3][<ffffffc000088f50>] dump_backtrace+0x0/0x16c
+[    0.482921]<3>-(3)[0:swapper/3][<ffffffc0000890cc>] show_stack+0x10/0x1c
+[    0.482940]<3>-(3)[0:swapper/3][<ffffffc0009bc920>] dump_stack+0x1c/0x28
+[    0.482959]<3>-(3)[0:swapper/3][<ffffffc00008f8bc>] handle_IPI+0x254/0x264
+[    0.482976]<3>-(3)[0:swapper/3][<ffffffc000081644>] gic_handle_irq+0x7c/0x84
+[    0.482992]<3>-(3)[0:swapper/3]Exception stack(0xffffffc07d88fe20 to 0xffffffc07d88fff4)
+[    0.483012]<3>-(3)[0:swapper/3]fe20: 7d88c000 ffffffc0 7d88c000 ffffffc0 7d88ff60 ffffffc0 00085510 ffffffc0
+[    0.483032]<3>-(3)[0:swapper/3]fe40: 00000000 00000000 00000000 00000000 7e3839c4 ffffffc0 00010000 00000000
+[    0.483051]<3>-(3)[0:swapper/3]fe60: 00000000 00000000 00dbb5c8 ffffffc0 7d5f3000 00000000 00000000 00000000
+[    0.483071]<3>-(3)[0:swapper/3]fe80: 00000019 00000000 7d88fd70 ffffffc0 00bfd7e0 ffffffc0 00000058 00000000
+[    0.483090]<3>-(3)[0:swapper/3]fea0: 00000001 00000000 00005ca8 00000000 00020000 00000000 0000020e 00000000
+[    0.483109]<3>-(3)[0:swapper/3]fec0: 00000000 00000000 00000000 00000000 00000007 00000000 7d88c000 ffffffc0
+[    0.483129]<3>-(3)[0:swapper/3]fee0: 7d88c000 ffffffc0 7d88c000 ffffffc0 00eb1000 ffffffc0 00f09604 ffffffc0
+[    0.483149]<3>-(3)[0:swapper/3]ff00: 009cf000 ffffffc0 00eb1269 ffffffc0 00bb75e0 ffffffc0 00000001 00000000
+[    0.483169]<3>-(3)[0:swapper/3]ff20: 400801d8 00000000 7d88ff60 ffffffc0 0008550c ffffffc0 7d88ff60 ffffffc0
+[    0.483188]<3>-(3)[0:swapper/3]ff40: 00085510 ffffffc0 60000105 00000000 7d88c000 ffffffc0 00eb1000 ffffffc0
+[    0.483208]<3>-(3)[0:swapper/3]ff60: 7d88ff70 ffffffc0 00100018 ffffffc0 7d88ffd0 ffffffc0 009b76f4 ffffffc0
+[    0.483227]<3>-(3)[0:swapper/3]ff80: 00000003 00000000 00000000 00000000 00ee1228 ffffffc0 410fd034 00000000
+[    0.483247]<3>-(3)[0:swapper/3]ffa0: 40dae028 00000000 40000000 00000000 4007b000 00000000 4007d000 00000000
+[    0.483267]<3>-(3)[0:swapper/3]ffc0: 000801f0 ffffffc0 400801d8 00000000 00000000 00000000 400801d8 00000000
+[    0.483284]<3>-(3)[0:swapper/3]ffe0: 00000000 00000000 00000000 00000000 ffffffff
+[    0.483302]<3>-(3)[0:swapper/3][<ffffffc000083e40>] el1_irq+0x80/0xec
+[    0.483324]<3>-(3)[0:swapper/3][<ffffffc000100014>] cpu_startup_entry+0x1e0/0x22c
+[    0.483342]<3>-(3)[0:swapper/3][<ffffffc0009b76f0>] secondary_start_kernel+0x1e8/0x208
+[    0.483356]<2>-(2)[0:swapper/2]CPU2: stopping
+[    0.483374]<2>-(2)[0:swapper/2]CPU: 2 PID: 0 Comm: swapper/2 Tainted: G        W    3.10.65+ #1
+[    0.483387]<2>-(2)[0:swapper/2]Call trace:
+[    0.483408]<2>-(2)[0:swapper/2][<ffffffc000088f50>] dump_backtrace+0x0/0x16c
+[    0.483428]<2>-(2)[0:swapper/2][<ffffffc0000890cc>] show_stack+0x10/0x1c
+[    0.483447]<2>-(2)[0:swapper/2][<ffffffc0009bc920>] dump_stack+0x1c/0x28
+[    0.483465]<2>-(2)[0:swapper/2][<ffffffc00008f8bc>] handle_IPI+0x254/0x264
+[    0.483482]<2>-(2)[0:swapper/2][<ffffffc000081644>] gic_handle_irq+0x7c/0x84
+[    0.483498]<2>-(2)[0:swapper/2]Exception stack(0xffffffc07d88be20 to 0xffffffc07d88bff4)
+[    0.483518]<2>-(2)[0:swapper/2]be20: 7d888000 ffffffc0 7d888000 ffffffc0 7d88bf60 ffffffc0 00085510 ffffffc0
+[    0.483537]<2>-(2)[0:swapper/2]be40: 00000000 00000000 00000000 00000000 7e3789c4 ffffffc0 00010000 00000000
+[    0.483556]<2>-(2)[0:swapper/2]be60: 00000000 00000000 00dbb5c8 ffffffc0 7d5e8000 00000000 00000000 00000000
+[    0.483576]<2>-(2)[0:swapper/2]be80: 00000019 00000000 7d88bd70 ffffffc0 00000002 00000000 0000b032 00000000
+[    0.483595]<2>-(2)[0:swapper/2]bea0: 00000002 00000000 00000337 00000000 70203a5d 3e2d6c6c 00000000 00000000
+[    0.483615]<2>-(2)[0:swapper/2]bec0: 00000000 00000000 00000000 00000000 00000007 00000000 7d888000 ffffffc0
+[    0.483635]<2>-(2)[0:swapper/2]bee0: 7d888000 ffffffc0 7d888000 ffffffc0 00eb1000 ffffffc0 00f09604 ffffffc0
+[    0.483654]<2>-(2)[0:swapper/2]bf00: 009cf000 ffffffc0 00eb1269 ffffffc0 00bb75e0 ffffffc0 00000001 00000000
+[    0.483674]<2>-(2)[0:swapper/2]bf20: 400801d8 00000000 7d88bf60 ffffffc0 0008550c ffffffc0 7d88bf60 ffffffc0
+[    0.483694]<2>-(2)[0:swapper/2]bf40: 00085510 ffffffc0 60000145 00000000 7d888000 ffffffc0 00eb1000 ffffffc0
+[    0.483714]<2>-(2)[0:swapper/2]bf60: 7d88bf70 ffffffc0 00100018 ffffffc0 7d88bfd0 ffffffc0 009b76f4 ffffffc0
+[    0.483733]<2>-(2)[0:swapper/2]bf80: 00000002 00000000 00000000 00000000 00ee1228 ffffffc0 410fd034 00000000
+[    0.483752]<2>-(2)[0:swapper/2]bfa0: 40dae028 00000000 40000000 00000000 4007b000 00000000 4007d000 00000000
+[    0.483772]<2>-(2)[0:swapper/2]bfc0: 000801f0 ffffffc0 400801d8 00000000 00000000 00000000 400801d8 00000000
+[    0.483789]<2>-(2)[0:swapper/2]bfe0: 00000000 00000000 00000000 00000000 ffffffff
+[    0.483807]<2>-(2)[0:swapper/2][<ffffffc000083e40>] el1_irq+0x80/0xec
+[    0.483828]<2>-(2)[0:swapper/2][<ffffffc000100014>] cpu_startup_entry+0x1e0/0x22c
+[    0.483847]<2>-(2)[0:swapper/2][<ffffffc0009b76f0>] secondary_start_kernel+0x1e8/0x208
+[    0.483860]<1>-(1)[0:swapper/1]CPU1: stopping
+[    0.483879]<1>-(1)[0:swapper/1]CPU: 1 PID: 0 Comm: swapper/1 Tainted: G        W    3.10.65+ #1
+[    0.483890]<1>-(1)[0:swapper/1]Call trace:
+[    0.483912]<1>-(1)[0:swapper/1][<ffffffc000088f50>] dump_backtrace+0x0/0x16c
+[    0.483932]<1>-(1)[0:swapper/1][<ffffffc0000890cc>] show_stack+0x10/0x1c
+[    0.483951]<1>-(1)[0:swapper/1][<ffffffc0009bc920>] dump_stack+0x1c/0x28
+[    0.483969]<1>-(1)[0:swapper/1][<ffffffc00008f8bc>] handle_IPI+0x254/0x264
+[    0.483986]<1>-(1)[0:swapper/1][<ffffffc000081644>] gic_handle_irq+0x7c/0x84
+[    0.484001]<1>-(1)[0:swapper/1]Exception stack(0xffffffc07d887e20 to 0xffffffc07d887ff4)
+[    0.484022]<1>-(1)[0:swapper/1]7e20: 7d884000 ffffffc0 7d884000 ffffffc0 7d887f60 ffffffc0 00085510 ffffffc0
+[    0.484041]<1>-(1)[0:swapper/1]7e40: 00000000 00000000 00000000 00000000 7e36d9c4 ffffffc0 00010000 00000000
+[    0.484060]<1>-(1)[0:swapper/1]7e60: 00000000 00000000 00dbb5c8 ffffffc0 7d5dd000 00000000 00000000 00000000
+[    0.484079]<1>-(1)[0:swapper/1]7e80: 00000019 00000000 7d887d70 ffffffc0 00000001 00000000 00005800 00000000
+[    0.484098]<1>-(1)[0:swapper/1]7ea0: 00000001 00000000 0000b9d5 00000000 6f6e2074 30203a20 00000000 00000000
+[    0.484117]<1>-(1)[0:swapper/1]7ec0: 00000000 00000000 00000000 00000000 0000000b 00000000 7d884000 ffffffc0
+[    0.484137]<1>-(1)[0:swapper/1]7ee0: 7d884000 ffffffc0 7d884000 ffffffc0 00eb1000 ffffffc0 00f09604 ffffffc0
+[    0.484156]<1>-(1)[0:swapper/1]7f00: 009cf000 ffffffc0 00eb1269 ffffffc0 00bb75e0 ffffffc0 00000001 00000000
+[    0.484176]<1>-(1)[0:swapper/1]7f20: 400801d8 00000000 7d887f60 ffffffc0 0008550c ffffffc0 7d887f60 ffffffc0
+[    0.484196]<1>-(1)[0:swapper/1]7f40: 00085510 ffffffc0 60000105 00000000 7d884000 ffffffc0 00eb1000 ffffffc0
+[    0.484215]<1>-(1)[0:swapper/1]7f60: 7d887f70 ffffffc0 00100018 ffffffc0 7d887fd0 ffffffc0 009b76f4 ffffffc0
+[    0.484234]<1>-(1)[0:swapper/1]7f80: 00000001 00000000 00000000 00000000 00ee1228 ffffffc0 410fd034 00000000
+[    0.484254]<1>-(1)[0:swapper/1]7fa0: 40dae028 00000000 40000000 00000000 4007b000 00000000 4007d000 00000000
+[    0.484273]<1>-(1)[0:swapper/1]7fc0: 000801f0 ffffffc0 400801d8 00000000 00000000 00000000 400801d8 00000000
+[    0.484290]<1>-(1)[0:swapper/1]7fe0: 00000000 00000000 00000000 00000000 ffffffff
+[    0.484308]<1>-(1)[0:swapper/1][<ffffffc000083e40>] el1_irq+0x80/0xec
+[    0.484329]<1>-(1)[0:swapper/1][<ffffffc000100014>] cpu_startup_entry+0x1e0/0x22c
+[    0.484348]<1>-(1)[0:swapper/1][<ffffffc0009b76f0>] secondary_start_kernel+0x1e8/0x208
+[    0.484362]<0>-(0)[0:swapper/0]CPU0: stopping
+[    0.484380]<0>-(0)[0:swapper/0]CPU: 0 PID: 0 Comm: swapper/0 Tainted: G        W    3.10.65+ #1
+[    0.484392]<0>-(0)[0:swapper/0]Call trace:
+[    0.484413]<0>-(0)[0:swapper/0][<ffffffc000088f50>] dump_backtrace+0x0/0x16c
+[    0.484433]<0>-(0)[0:swapper/0][<ffffffc0000890cc>] show_stack+0x10/0x1c
+[    0.484452]<0>-(0)[0:swapper/0][<ffffffc0009bc920>] dump_stack+0x1c/0x28
+[    0.484470]<0>-(0)[0:swapper/0][<ffffffc00008f8bc>] handle_IPI+0x254/0x264
+[    0.484487]<0>-(0)[0:swapper/0][<ffffffc000081644>] gic_handle_irq+0x7c/0x84
+[    0.484503]<0>-(0)[0:swapper/0]Exception stack(0xffffffc000d9bdd0 to 0xffffffc000d9bfa4)
+[    0.484520]<0>-(0)[0:swapper/0]bdc0:                                     00d98000 ffffffc0 00d98000 ffffffc0
+[    0.484540]<0>-(0)[0:swapper/0]bde0: 00d9bf10 ffffffc0 00085510 ffffffc0 00000000 00000000 00000000 00000000
+[    0.484559]<0>-(0)[0:swapper/0]be00: 7e3629c4 ffffffc0 00010000 00000000 00000000 00000000 00dbb5c8 ffffffc0
+[    0.484579]<0>-(0)[0:swapper/0]be20: 7d5d2000 00000000 00000000 00000000 00000019 00000000 00d9bd20 ffffffc0
+[    0.484598]<0>-(0)[0:swapper/0]be40: 00ba92d8 ffffffc0 03097500 ffffffc0 00000001 00000000 00002ca8 00000000
+[    0.484617]<0>-(0)[0:swapper/0]be60: 00020000 00000000 00000020 00000000 00000047 00000000 0000004f 00000000
+[    0.484636]<0>-(0)[0:swapper/0]be80: 00000020 00000000 00d98000 ffffffc0 00d98000 ffffffc0 00d98000 ffffffc0
+[    0.484656]<0>-(0)[0:swapper/0]bea0: 00eb1000 ffffffc0 00f09604 ffffffc0 009cf000 ffffffc0 00eb1269 ffffffc0
+[    0.484676]<0>-(0)[0:swapper/0]bec0: 00bb75e0 ffffffc0 00000001 00000000 40080200 00000000 00d9bf10 ffffffc0
+[    0.484695]<0>-(0)[0:swapper/0]bee0: 0008550c ffffffc0 00d9bf10 ffffffc0 00085510 ffffffc0 60000105 00000000
+[    0.484715]<0>-(0)[0:swapper/0]bf00: 00d98000 ffffffc0 00eb1000 ffffffc0 00d9bf20 ffffffc0 00100018 ffffffc0
+[    0.484734]<0>-(0)[0:swapper/0]bf20: 00d9bf80 ffffffc0 009b43a4 ffffffc0 00f30000 ffffffc0 00d81a38 ffffffc0
+[    0.484754]<0>-(0)[0:swapper/0]bf40: 00ee1000 ffffffc0 00d81a38 ffffffc0 7e3ddb80 ffffffc0 40000000 00000000
+[    0.484773]<0>-(0)[0:swapper/0]bf60: 4007b000 00000000 4007d000 00000000 00080418 ffffffc0 40080200 00000000
+[    0.484793]<0>-(0)[0:swapper/0]bf80: 00d9bfa0 ffffffc0 00d3775c ffffffc0 7e3ddb80 ffffffc0 00000002 00000000
+[    0.484807]<0>-(0)[0:swapper/0]bfa0: 00000000
+[    0.484824]<0>-(0)[0:swapper/0][<ffffffc000083e40>] el1_irq+0x80/0xec
+[    0.484845]<0>-(0)[0:swapper/0][<ffffffc000100014>] cpu_startup_entry+0x1e0/0x22c
+[    0.484865]<0>-(0)[0:swapper/0][<ffffffc0009b43a0>] rest_init+0x7c/0x88
+[    0.484886]<0>-(0)[0:swapper/0][<ffffffc000d37758>] start_kernel+0x2f0/0x308
+[    0.484906]<7>-(7)[0:swapper/7]msdc @ 0xffffff8003800000, id:0
+[    0.484920]<7>-(7)[0:swapper/7][simple_mmc_attach_mmc]: host/mmc/card is not existed
+[    0.570944]<7>-(7)[0:swapper/7]not find in scatter file error!
+[    0.570966]<7>-(7)[0:swapper/7]not find in scatter file error!
+[    0.570987]<7>-(7)[0:swapper/7]not find in scatter file error!
+[    0.571007]<7>-(7)[0:swapper/7]not find in scatter file error!
+[    0.571027]<7>-(7)[0:swapper/7]not find in scatter file error!
+[    0.571047]<7>-(7)[0:swapper/7]not find in scatter file error!
+[    0.571068]<7>-(7)[0:swapper/7]not find in scatter file error!
+[    0.571088]<7>-(7)[0:swapper/7]not find in scatter file error!
+[    0.571109]<7>-(7)[0:swapper/7]not find in scatter file error!
+[    0.571130]<7>-(7)[0:swapper/7]not find in scatter file error!
+[    0.571150]<7>-(7)[0:swapper/7]not find in scatter file error!
+[    0.571170]<7>-(7)[0:swapper/7]not find in scatter file error!
+[    0.571191]<7>-(7)[0:swapper/7]not find in scatter file error!
+[    0.571211]<7>-(7)[0:swapper/7]not find in scatter file error!
+[    0.571232]<7>-(7)[0:swapper/7]not find in scatter file error!
+[    0.571252]<7>-(7)[0:swapper/7]not find in scatter file error!
+[    0.571273]<7>-(7)[0:swapper/7]not find in scatter file error!
+[    0.571294]<7>-(7)[0:swapper/7]not find in scatter file error!
+[    0.571314]<7>-(7)[0:swapper/7]not find in scatter file error!
+[    0.571334]<7>-(7)[0:swapper/7]not find in scatter file error!
+[    0.571383]<7>-(7)[0:swapper/7]not find in scatter file error!
+[    0.571397]<7>-(7)[0:swapper/7]not find in scatter file error!
+[    0.571410]<7>-(7)[0:swapper/7]not find in scatter file error!
+[    0.571424]<7>-(7)[0:swapper/7]ipanic_header_to_sd: failed[8--1]
+[    0.571630]<7>-(7)[0:swapper/7]not find in scatter file error!
+[    0.571645]<7>-(7)[0:swapper/7]ipanic_data_to_sd: dump SYS_KERNEL_LOG failed[-1]
+[    0.571690]<7>-(7)[0:swapper/7]not find in scatter file error!
+[    0.571703]<7>-(7)[0:swapper/7]ipanic_data_to_sd: dump PROC_CUR_TSK failed[-1]
+[    0.571721]<7>-(7)[0:swapper/7]CPU: 7 PID: 0 Comm: swapper/7 Tainted: G        W    3.10.65+ #1
+[    0.571738]<7>-(7)[0:swapper/7]task: ffffffc003074000 ti: ffffffc07d89c000 task.ti: ffffffc07d89c000
+[    0.571756]<7>-(7)[0:swapper/7]PC is at mt_set_pwm_disable_hal+0x10/0x24
+[    0.571773]<7>-(7)[0:swapper/7]LR is at cpu_temp_over_100_beep+0x1c/0xac
+[    0.571788]<7>-(7)[0:swapper/7]pc : [<ffffffc000652ffc>] lr : [<ffffffc0006a7234>] pstate: 200001c5
+[    0.571800]<7>-(7)[0:swapper/7]sp : ffffffc07d89fb90
+[    0.571811]x29: ffffffc07d89fb90 x28: 7fffffffffffffff 
+[    0.571831]x27: ffffffc07e3aec88 x26: 0000000000000003 
+[    0.571850]x25: ffffffc00105cd18 x24: ffffffc000c44b70 
+[    0.571869]x23: ffffffc000e08650 x22: ffffffc00105c000 
+[    0.571887]x21: 0000000000000001 x20: ffffffc00105cb90 
+[    0.571906]x19: ffffffc000e631e0 x18: 0000000000000007 
+[    0.571924]x17: 0000000000000000 x16: 0000000000000000 
+[    0.571941]x15: 0000000000000000 x14: 3030303030783028 
+[    0.571960]x13: 206469753a726573 x12: 0000000000000003 
+[    0.571978]x11: 5f6e6e6f635d575b x10: 0000000000000000 
+[    0.571996]x9 : 0000000000000000 x8 : ffffffc00105c000 
+[    0.572014]x7 : 0000000000000b51 x6 : ffffffc00105cb90 
+[    0.572032]x5 : 000000000000011d x4 : 0000000000001be9 
+[    0.572050]x3 : 00000000fffe2244 x2 : 0000000000000000 
+[    0.572068]x1 : ffffffc00115d000 x0 : 0000000000000001 
+[    0.572088]<7>-(7)[0:swapper/7]
+[    0.572088]<7>PC: 0xffffffc000652f7c:
+[    0.572101]2f7c  a8c37bfd d65f03c0 f0005841 f0005840 91306000 f9460821 91004025 91014024
+[    0.572145]2f9c  91024023 91034022 a9001005 91044021 f9001001 a9010803 d65f03c0 528000c0
+[    0.572187]2fbc  d65f03c0 528000c0 d65f03c0 52800021 1ac02020 f0005841 f9460822 b9400041
+[    0.572230]2fdc  2a010000 b9000040 d5033f9f d65f03c0 52800021 1ac02020 f0005841 f9460822
+[    0.572273]2ffc  b9400041 0a200020 b9000040 d5033f9f d65f03c0 d65f03c0 d65f03c0 52800000
+[    0.572315]301c  d65f03c0 d0005843 91306063 f8605860 b9400003 121d7063 2a020062 b9000002
+[    0.572358]303c  d5033f9f 6b1f003f 540001cb b9400002 121b7842 b9000002 d5033f9f 54000080
+[    0.572401]305c  7100043f 54000260 d65f03c0 b9400001 121c7821 b9000001 d5033f9f d65f03c0
+[    0.572447]<7>-(7)[0:swapper/7]
+[    0.572447]<7>LR: 0xffffffc0006a71b4:
+[    0.572459]71b4  540002c9 90003df3 90003140 91078273 910f8000 940c4e73 b9400260 97feaf87
+[    0.572503]71d4  900055e1 5281f403 91068021 52803202 aa1303e0 79003e62 b9000023 52800143
+[    0.572546]71f4  29008823 52800621 79004261 52800081 79004661 97feae1c f9400bf3 a8c27bfd
+[    0.572589]7214  d65f03c0 a9be7bfd 910003fd a90153f3 90003df3 91078273 b9400260 97feaf6f
+[    0.572631]7234  900055e1 5281f403 91068021 52803202 9100c034 aa1303e0 79003e62 b9000023
+[    0.572674]7254  52800643 29008823 52800621 79004261 52800301 79004661 97feae03 aa1403e0
+[    0.572717]7274  97e811c2 d2800002 d2800003 aa1403e0 52800001 97e80fef f0ffffe1 52803e80
+[    0.572760]7294  913b1021 f9001281 97e7eaae f00037a1 f9408021 8b010001 aa1403e0 f9000a81
+[    0.572806]<7>-(7)[0:swapper/7]
+[    0.572806]<7>SP: 0xffffffc07d89fb10:
+[    0.572819]fb10  0105cb90 ffffffc0 00000001 00000000 0105c000 ffffffc0 00e08650 ffffffc0
+[    0.572863]fb30  00c44b70 ffffffc0 0105cd18 ffffffc0 00000003 00000000 7e3aec88 ffffffc0
+[    0.572905]fb50  ffffffff 7fffffff 7d89fb90 ffffffc0 006a7234 ffffffc0 7d89fb90 ffffffc0
+[    0.572948]fb70  00652ffc ffffffc0 200001c5 00000000 7d89fb90 ffffffc0 0039e518 ffffffc0
+[    0.572991]fb90  7d89fbb0 ffffffc0 004a7dd8 ffffffc0 00000000 00000000 0105cb90 ffffffc0
+[    0.573033]fbb0  7d89fc10 ffffffc0 004a7eac ffffffc0 0105c000 ffffffc0 0105cda0 ffffffc0
+[    0.573077]fbd0  7e3aeb50 ffffffc0 7e3aeb90 ffffffc0 7e3aeb50 ffffffc0 7d89fd38 ffffffc0
+[    0.573119]fbf0  004a7e00 ffffffc0 7e3aeb90 ffffffc0 0105cda0 ffffffc0 000001c0 00000000
+[    0.573166]<7>-(7)[0:swapper/7]
+[    0.573166]<7>X1: 0xffffffc00115cf80:
+[    0.573179]cf80  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    0.573220]cfa0  00000000 00000000 00000000 00000000 00cb26b8 ffffffc0 0115cf00 ffffffc0
+[    0.573263]cfc0  0115d3d8 ffffffc0 00000000 00000000 00000000 00000000 00000000 00000000
+[    0.573305]cfe0  00000000 00000000 7d8f4000 ffffffc0 0036a1d8 ffffffc0 0115cfb0 ffffffc0
+[    0.573348]d000  ffffffff 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    0.573390]d020  0f859a30 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    0.573431]d040  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    0.573472]d060  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    0.573519]<7>-(7)[0:swapper/7]
+[    0.573519]<7>X6: 0xffffffc00105cb10:
+[    0.573532]cb10  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    0.573573]cb30  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    0.573615]cb50  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    0.573656]cb70  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    0.573697]cb90  0373e000 ffffff80 10209000 00000000 00000000 00000039 000021dd 000021d3
+[    0.573740]cbb0  000021c9 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    0.573782]cbd0  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    0.573822]cbf0  00000000 00000000 00000000 000190c8 000071ac 0000733c 000071ac 00006f54
+[    0.573869]<7>-(7)[0:swapper/7]
+[    0.573869]<7>X8: 0xffffffc00105bf80:
+[    0.573881]bf80  77827000 ffffffc0 0049c99c ffffffc0 0049c99c ffffffc0 0049c99c ffffffc0
+[    0.573924]bfa0  0049c99c ffffffc0 0049c99c ffffffc0 00000000 00000000 00000000 00000000
+[    0.573966]bfc0  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    0.574008]bfe0  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    0.574049]c000  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    0.574090]c020  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    0.574130]c040  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    0.574171]c060  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    0.574222]<7>-(7)[0:swapper/7]
+[    0.574222]<7>X19: 0xffffffc000e63160:
+[    0.574235]3160  006a5ebc ffffffc0 00000000 00000000 006a5ec4 ffffffc0 00000000 00000000
+[    0.574278]3180  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    0.574320]31a0  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    0.574361]31c0  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    0.574404]31e0  00000000 00000000 00000007 00000000 00000000 00000000 00000000 01900000
+[    0.574447]3200  00030031 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    0.574490]3220  00000000 00000000 00000000 00000000 00ccf408 ffffffc0 ffffffff 00000000
+[    0.574533]3240  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    0.574579]<7>-(7)[0:swapper/7]
+[    0.574579]<7>X20: 0xffffffc00105cb10:
+[    0.574592]cb10  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    0.574634]cb30  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    0.574676]cb50  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    0.574718]cb70  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    0.574760]cb90  0373e000 ffffff80 10209000 00000000 00000000 00000039 000021dd 000021d3
+[    0.574803]cbb0  000021c9 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    0.574845]cbd0  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    0.574886]cbf0  00000000 00000000 00000000 000190c8 000071ac 0000733c 000071ac 00006f54
+[    0.574934]<7>-(7)[0:swapper/7]
+[    0.574934]<7>X22: 0xffffffc00105bf80:
+[    0.574947]bf80  77827000 ffffffc0 0049c99c ffffffc0 0049c99c ffffffc0 0049c99c ffffffc0
+[    0.574991]bfa0  0049c99c ffffffc0 0049c99c ffffffc0 00000000 00000000 00000000 00000000
+[    0.575034]bfc0  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    0.575076]bfe0  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    0.575119]c000  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    0.575161]c020  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    0.575203]c040  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    0.575244]c060  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    0.575290]<7>-(7)[0:swapper/7]
+[    0.575290]<7>X23: 0xffffffc000e085d0:
+[    0.575302]85d0  004a42c8 ffffffc0 004a4800 ffffffc0 004a4578 ffffffc0 004a442c ffffffc0
+[    0.575346]85f0  004a42ec ffffffc0 004a4254 ffffffc0 004a4270 ffffffc0 004a4280 ffffffc0
+[    0.575389]8610  004a429c ffffffc0 00000000 00000000 00000000 00000000 00000000 00000000
+[    0.575432]8630  004a42b4 ffffffc0 00000000 00000000 00000000 00000000 00000000 00000000
+[    0.575474]8650  000026cf ffffffe2 0001c908 000186a0 00014c08 000124f8 0000fde8 0000d6d8
+[    0.575516]8670  0000afc8 000088b8 000061a8 00003a98 7fffffff 7fffffff 7fffffff 7fffffff
+[    0.575559]8690  ffffffff 00000001 00000001 00009c40 00000002 000003e8 3b9aca00 0000d6d8
+[    0.575601]86b0  0000733c 00000000 746b746d 75706373 7379732d 00747372 00000000 00000000
+[    0.575648]<7>-(7)[0:swapper/7]
+[    0.575648]<7>X24: 0xffffffc000c44af0:
+[    0.575661]4af0  30657461 0000000a 6f503501 2f726577 5f555043 72656854 746c616d 6d726568
+[    0.575705]4b10  695f6c61 203a7273 72656854 206c616d 74617473 74203265 7274206f 65676769
+[    0.575748]4b30  50532072 7473204d 32657461 0000000a 72656874 5f6c616d 65746e69 70757272
+[    0.575791]4b50  61685f74 656c646e 203a2072 52454854 544e494d 3d205453 25783020 00000a78
+[    0.575834]4b70  6f503501 2f726577 5f555043 72656854 5b6c616d 5f757063 74736574 6165725d
+[    0.575877]4b90  61655f64 625f6863 5f6b6e61 622c5354 5f6b6e61 3d6d756e 000a6425 00000000
+[    0.575920]4bb0  6f503501 2f726577 5f555043 72656854 5b6c616d 5f757063 74736574 5043205d
+[    0.575964]4bd0  53545f55 55434d5f 3d545f32 00006425 6f503501 2f726577 5f555043 72656854
+[    0.576010]<7>-(7)[0:swapper/7]
+[    0.576010]<7>X25: 0xffffffc00105cc98:
+[    0.576022]cc98  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    0.576064]ccb8  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    0.576105]ccd8  03744000 ffffff80 00000000 00000000 000001e5 000001e2 00000001 00000000
+[    0.576148]ccf8  00000094 00000090 0000008c 00000000 03740000 ffffff80 11001000 00000b51
+[    0.576191]cd18  00000da1 00000da1 00000da1 00000da1 00000000 00000000 00000000 00000000
+[    0.576233]cd38  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    0.576274]cd58  00000000 00000000 00000000 00000000 00000000 00000000 77d9a400 ffffffc0
+[    0.576316]cd78  77d9a800 ffffffc0 77d9ac00 ffffffc0 77d71000 ffffffc0 77e72200 ffffffc0
+[    0.576363]<7>-(7)[0:swapper/7]
+[    0.576363]<7>X27: 0xffffffc07e3aec08:
+[    0.576376]ec08  00000000 00000000 7e3aeb50 ffffffc0 00000002 00000007 00000000 00000000
+[    0.576418]ec28  00000000 00000000 00000001 00000000 001026a8 ffffffc0 00000000 00000000
+[    0.576459]ec48  00000000 00000000 7e3aeb50 ffffffc0 00000003 0000000b 00000000 00000000
+[    0.576502]ec68  00000000 00000000 00000001 00000000 00101bd8 ffffffc0 00000000 00000000
+[    0.576545]ec88  00000000 00000000 03074000 ffffffc0 00000000 00000000 00000000 00000000
+[    0.576587]eca8  00000007 00000000 00000000 00000000 00000000 00000000 00000004 00000000
+[    0.576630]ecc8  00000000 00000000 00000000 00000000 00000018 00000000 00000000 00000000
+[    0.576671]ece8  00000000 00000000 00000000 00000000 00000000 00000000 0000001d 00000000
+[    0.576717]<7>-(7)[0:swapper/7]
+[    0.576717]<7>X29: 0xffffffc07d89fb10:
+[    0.576730]fb10  0105cb90 ffffffc0 00000001 00000000 0105c000 ffffffc0 00e08650 ffffffc0
+[    0.576772]fb30  00c44b70 ffffffc0 0105cd18 ffffffc0 00000003 00000000 7e3aec88 ffffffc0
+[    0.576815]fb50  ffffffff 7fffffff 7d89fb90 ffffffc0 006a7234 ffffffc0 7d89fb90 ffffffc0
+[    0.576858]fb70  00652ffc ffffffc0 200001c5 00000000 7d89fb90 ffffffc0 0039e518 ffffffc0
+[    0.576900]fb90  7d89fbb0 ffffffc0 004a7dd8 ffffffc0 00000000 00000000 0105cb90 ffffffc0
+[    0.576943]fbb0  7d89fc10 ffffffc0 004a7eac ffffffc0 0105c000 ffffffc0 0105cda0 ffffffc0
+[    0.576986]fbd0  7e3aeb50 ffffffc0 7e3aeb90 ffffffc0 7e3aeb50 ffffffc0 7d89fd38 ffffffc0
+[    0.577029]fbf0  004a7e00 ffffffc0 7e3aeb90 ffffffc0 0105cda0 ffffffc0 000001c0 00000000
+[    0.577072]<7>-(7)[0:swapper/7]
+[    0.577086]<7>-(7)[0:swapper/7]Process swapper/7 (pid: 0, stack limit = 0xffffffc07d89c068)
+[    0.577102]<7>-(7)[0:swapper/7]Stack: (0xffffffc07d89fb90 to 0xffffffc07d8a0000)
+[    0.577120]<7>-(7)[0:swapper/7]fb80:                                     7d89fbb0 ffffffc0 004a7dd8 ffffffc0
+[    0.577139]<7>-(7)[0:swapper/7]fba0: 00000000 00000000 0105cb90 ffffffc0 7d89fc10 ffffffc0 004a7eac ffffffc0
+[    0.577159]<7>-(7)[0:swapper/7]fbc0: 0105c000 ffffffc0 0105cda0 ffffffc0 7e3aeb50 ffffffc0 7e3aeb90 ffffffc0
+[    0.577179]<7>-(7)[0:swapper/7]fbe0: 7e3aeb50 ffffffc0 7d89fd38 ffffffc0 004a7e00 ffffffc0 7e3aeb90 ffffffc0
+[    0.577199]<7>-(7)[0:swapper/7]fc00: 0105cda0 ffffffc0 000001c0 00000000 7d89fc50 ffffffc0 000c2010 ffffffc0
+[    0.577218]<7>-(7)[0:swapper/7]fc20: 0105cda0 ffffffc0 00000000 00000000 7e3aeb50 ffffffc0 009c92a8 ffffffc0
+[    0.577238]<7>-(7)[0:swapper/7]fc40: 7d89fc50 ffffffc0 000c1ff0 ffffffc0 7d89fca0 ffffffc0 000c2d70 ffffffc0
+[    0.577258]<7>-(7)[0:swapper/7]fc60: 7e3aeba8 ffffffc0 00000000 00000000 7e3aeb50 ffffffc0 7e3aebc8 ffffffc0
+[    0.577277]<7>-(7)[0:swapper/7]fc80: ffffffff 7fffffff 00000001 00000000 1c15a246 00000000 000c2cd8 ffffffc0
+[    0.577297]<7>-(7)[0:swapper/7]fca0: 7d89fd40 ffffffc0 00382a24 ffffffc0 0000001e 00000000 7e206380 ffffffc0
+[    0.577317]<7>-(7)[0:swapper/7]fcc0: 0000001e 00000000 7d89c000 ffffffc0 7e204f00 ffffffc0 00dd44f8 ffffffc0
+[    0.577336]<7>-(7)[0:swapper/7]fce0: 7e3b3e80 ffffffc0 00bb75e0 ffffffc0 00000001 00000000 7d89c000 ffffffc0
+[    0.577356]<7>-(7)[0:swapper/7]fd00: 7d89fd30 ffffffc0 1c15a246 00000000 7e3aec48 ffffffc0 7e3aec08 ffffffc0
+[    0.577376]<7>-(7)[0:swapper/7]fd20: 7e3aebc8 ffffffc0 7e3aeba8 ffffffc0 7d89fd60 ffffffc0 1c15a246 00000000
+[    0.577396]<7>-(7)[0:swapper/7]fd40: 7d89fd50 ffffffc0 00121c24 ffffffc0 7d89fda0 ffffffc0 0011e078 ffffffc0
+[    0.577416]<7>-(7)[0:swapper/7]fd60: 0000001e 00000000 0000001e 00000000 00d92000 ffffffc0 7d89c000 ffffffc0
+[    0.577435]<7>-(7)[0:swapper/7]fd80: 00f31000 ffffffc0 00000000 00000000 00bf4638 ffffffc0 0011e064 ffffffc0
+[    0.577455]<7>-(7)[0:swapper/7]fda0: 7d89fdc0 ffffffc0 000848e8 ffffffc0 0000200c ffffff80 000848ac ffffffc0
+[    0.577475]<7>-(7)[0:swapper/7]fdc0: 7d89fe10 ffffffc0 0008160c ffffffc0 0000200c ffffff80 7d89fe40 ffffffc0
+[    0.577495]<7>-(7)[0:swapper/7]fde0: 00f4d0f8 ffffffc0 00002010 ffffff80 60000145 00000000 00000001 00000000
+[    0.577514]<7>-(7)[0:swapper/7]fe00: 00eb1269 ffffffc0 00083e24 ffffffc0 7d89ff60 ffffffc0 00083e44 ffffffc0
+[    0.577534]<7>-(7)[0:swapper/7]fe20: 7d89c000 ffffffc0 7d89c000 ffffffc0 7d89ff60 ffffffc0 00085510 ffffffc0
+[    0.577553]<7>-(7)[0:swapper/7]fe40: 00000000 00000000 00000000 00000000 7e3af9c4 ffffffc0 00010000 00000000
+[    0.577573]<7>-(7)[0:swapper/7]fe60: 00000000 00000000 00dbb5c8 ffffffc0 7d61f000 00000000 00000000 00000000
+[    0.577592]<7>-(7)[0:swapper/7]fe80: 00000019 00000000 7d89fd70 ffffffc0 00000000 00000000 635d575b 5f6e6e6f
+[    0.577612]<7>-(7)[0:swapper/7]fea0: 00000003 00000000 3a726573 20646975 30783028 30303030 00000000 00000000
+[    0.577631]<7>-(7)[0:swapper/7]fec0: 00000000 00000000 00000000 00000000 00000007 00000000 7d89c000 ffffffc0
+[    0.577650]<7>-(7)[0:swapper/7]fee0: 7d89c000 ffffffc0 7d89c000 ffffffc0 00eb1000 ffffffc0 00f09604 ffffffc0
+[    0.577670]<7>-(7)[0:swapper/7]ff00: 009cf000 ffffffc0 00eb1269 ffffffc0 00bb75e0 ffffffc0 00000001 00000000
+[    0.577690]<7>-(7)[0:swapper/7]ff20: 400801d8 00000000 7d89ff60 ffffffc0 0008550c ffffffc0 7d89ff60 ffffffc0
+[    0.577710]<7>-(7)[0:swapper/7]ff40: 00085510 ffffffc0 60000145 00000000 7d89c000 ffffffc0 00eb1000 ffffffc0
+[    0.577729]<7>-(7)[0:swapper/7]ff60: 7d89ff70 ffffffc0 00100018 ffffffc0 7d89ffd0 ffffffc0 009b76f4 ffffffc0
+[    0.577749]<7>-(7)[0:swapper/7]ff80: 00000007 00000000 00000000 00000000 00ee1228 ffffffc0 410fd034 00000000
+[    0.577768]<7>-(7)[0:swapper/7]ffa0: 40dae028 00000000 40000000 00000000 4007b000 00000000 4007d000 00000000
+[    0.577788]<7>-(7)[0:swapper/7]ffc0: 000801f0 ffffffc0 400801d8 00000000 00000000 00000000 400801d8 00000000
+[    0.577807]<7>-(7)[0:swapper/7]ffe0: 00000000 00000000 00000000 00000000 ffffffff ffffffff ffffffff fffff7ff
+[    0.577819]<7>-(7)[0:swapper/7]Call trace:
+[    0.577839]<7>-(7)[0:swapper/7][<ffffffc000652ffc>] mt_set_pwm_disable_hal+0x10/0x24
+[    0.577862]<7>-(7)[0:swapper/7][<ffffffc0004a7dd4>] read_all_bank_temperature+0x140/0x16c
+[    0.577883]<7>-(7)[0:swapper/7][<ffffffc0004a7ea8>] tscpu_update_tempinfo+0xa8/0xb8
+[    0.577905]<7>-(7)[0:swapper/7][<ffffffc0000c200c>] __run_hrtimer+0x7c/0x230
+[    0.577923]<7>-(7)[0:swapper/7][<ffffffc0000c2d6c>] hrtimer_interrupt+0x10c/0x288
+[    0.577945]<7>-(7)[0:swapper/7][<ffffffc000382a20>] arch_timer_handler_phys+0x28/0x38
+[    0.577967]<7>-(7)[0:swapper/7][<ffffffc000121c20>] handle_percpu_devid_irq+0xa0/0x17c
+[    0.577986]<7>-(7)[0:swapper/7][<ffffffc00011e074>] generic_handle_irq+0x30/0x4c
+[    0.578005]<7>-(7)[0:swapper/7][<ffffffc0000848e4>] handle_IRQ+0x94/0x1c4
+[    0.578022]<7>-(7)[0:swapper/7][<ffffffc000081608>] gic_handle_irq+0x40/0x84
+[    0.578038]<7>-(7)[0:swapper/7]Exception stack(0xffffffc07d89fe20 to 0xffffffc07d89fff4)
+[    0.578058]<7>-(7)[0:swapper/7]fe20: 7d89c000 ffffffc0 7d89c000 ffffffc0 7d89ff60 ffffffc0 00085510 ffffffc0
+[    0.578077]<7>-(7)[0:swapper/7]fe40: 00000000 00000000 00000000 00000000 7e3af9c4 ffffffc0 00010000 00000000
+[    0.578097]<7>-(7)[0:swapper/7]fe60: 00000000 00000000 00dbb5c8 ffffffc0 7d61f000 00000000 00000000 00000000
+[    0.578117]<7>-(7)[0:swapper/7]fe80: 00000019 00000000 7d89fd70 ffffffc0 00000000 00000000 635d575b 5f6e6e6f
+[    0.578136]<7>-(7)[0:swapper/7]fea0: 00000003 00000000 3a726573 20646975 30783028 30303030 00000000 00000000
+[    0.578155]<7>-(7)[0:swapper/7]fec0: 00000000 00000000 00000000 00000000 00000007 00000000 7d89c000 ffffffc0
+[    0.578174]<7>-(7)[0:swapper/7]fee0: 7d89c000 ffffffc0 7d89c000 ffffffc0 00eb1000 ffffffc0 00f09604 ffffffc0
+[    0.578194]<7>-(7)[0:swapper/7]ff00: 009cf000 ffffffc0 00eb1269 ffffffc0 00bb75e0 ffffffc0 00000001 00000000
+[    0.578214]<7>-(7)[0:swapper/7]ff20: 400801d8 00000000 7d89ff60 ffffffc0 0008550c ffffffc0 7d89ff60 ffffffc0
+[    0.578233]<7>-(7)[0:swapper/7]ff40: 00085510 ffffffc0 60000145 00000000 7d89c000 ffffffc0 00eb1000 ffffffc0
+[    0.578253]<7>-(7)[0:swapper/7]ff60: 7d89ff70 ffffffc0 00100018 ffffffc0 7d89ffd0 ffffffc0 009b76f4 ffffffc0
+[    0.578272]<7>-(7)[0:swapper/7]ff80: 00000007 00000000 00000000 00000000 00ee1228 ffffffc0 410fd034 00000000
+[    0.578291]<7>-(7)[0:swapper/7]ffa0: 40dae028 00000000 40000000 00000000 4007b000 00000000 4007d000 00000000
+[    0.578310]<7>-(7)[0:swapper/7]ffc0: 000801f0 ffffffc0 400801d8 00000000 00000000 00000000 400801d8 00000000
+[    0.578327]<7>-(7)[0:swapper/7]ffe0: 00000000 00000000 00000000 00000000 ffffffff
+[    0.578345]<7>-(7)[0:swapper/7][<ffffffc000083e40>] el1_irq+0x80/0xec
+[    0.578366]<7>-(7)[0:swapper/7][<ffffffc000100014>] cpu_startup_entry+0x1e0/0x22c
+[    0.578384]<7>-(7)[0:swapper/7][<ffffffc0009b76f0>] secondary_start_kernel+0x1e8/0x208
+[    0.578402]<7>-(7)[0:swapper/7]Code: 52800021 1ac02020 f0005841 f9460822 (b9400041) 
+[    0.578417]<7>-(7)[0:swapper/7]---[ end trace 802eb2a48fad0b9e ]---
+[    0.578431]<7>-(7)[0:swapper/7]Kernel panic - not syncing: Fatal exception in interrupt
+[    0.578495]<7>-(7)[0:swapper/7]mrdump: cpu[7] tsk:ffffffc003074000 ti:ffffffc07d89c000
+[    0.578842]<7>-(7)[0:swapper/7]not find in scatter file error!
+[    0.578856]<7>-(7)[0:swapper/7]ipanic_data_to_sd: dump SYS_KERNEL_LOG failed[-1]
