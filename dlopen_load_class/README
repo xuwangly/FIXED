@@ -1,0 +1,7 @@
+g++ -g -fpic -shared -o triangle.so triangle.cpp
+
+g++ class_main.cpp -ldl -o a.out
+
+./a.out
+
+http://tldp.org/HOWTO/C++-dlopen/thesolution.html#loadingclasses
