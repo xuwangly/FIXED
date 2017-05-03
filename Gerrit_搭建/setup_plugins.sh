@@ -16,6 +16,7 @@ cd gerrit/
 #编译到自己使用的gerrit版本
 git checkout v2.9.4 
 #buck build gerrit 编译gerrit.jar
+buck build gerrit
 cd plugins/
 rm -rf download-commands
 #克隆plugin的dowmload-commands,并切换到使用的gerrit版本
