@@ -1,0 +1,3 @@
+SUBSYSTEM=="usb", SYSFS{idVendor}=="0e8d", MODE="0666"
+SUBSYSTEM=="usb", ATTR{idVendor}="0e8d", ATTR{idProduct}="2000", SYMLINK+="android_adb"
+KERNEL=="ttyACM*", MODE="0666"
