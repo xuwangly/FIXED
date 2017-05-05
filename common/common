@@ -1,3 +1,22 @@
 1.reload littlecola firmware
 adb shell
 echo -n movidius/GuzziSpi_LcaPanoCam_ma2450_ddrinit.mvcmd > sys/class/misc/myriad/boot_fw
+
+
+[DESCRIPTION]
+ 
+     当图片出现异常后，为了理清问题，经常需要dump mdp buffer来理清是否为mdp 出错
+  
+[SOLUTION]
+     dump buffer的过程有以下两种方法.
+(1)方法1：dump到默认的path: Dump folder : /sdcard/mdp/
+ adb shell setprop dpframework.dumpbuffer.enable 1
+ 
+(2) 方法2: dump到制定的path: Change Dump folder : /data/mdp/
+The dump folder is defined in DpPortAdapt.h
+ 
+Command: 
+    1. adb shell setenforce 0 
+    2. adb shell mkdir /data/mdp
+    3. adb shell chmod 777 /data/mdp
+    4. adb shell setprop dpframework.dumpbuffer.enable 1

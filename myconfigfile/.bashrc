@@ -130,3 +130,7 @@ disable_proxy() {
 #git config --global http.proxy 'socks5://127.0.0.1:1080' 
 #git config --global https.proxy 'socks5://127.0.0.1:1080'
 export XDG_DATA_DIRS="/home/wangxu/.linuxbrew/share:$XDG_DATA_DIRS"
+
+#http://blog.csdn.net/billfeller/article/details/40215059 => Linux修改Shell命令提示符及颜色
+PS1="\[\e]0;\w\a\e[32;1m\][\[\e[33;1m\]\A\[\e[36;1m\]@\[\e[34;1m\]\w\[\e[32;1m\]]> \[\e[0m\]"
+
