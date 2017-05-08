@@ -20,3 +20,18 @@ Command:
     2. adb shell mkdir /data/mdp
     3. adb shell chmod 777 /data/mdp
     4. adb shell setprop dpframework.dumpbuffer.enable 1
+
+/*********************************************************************
+			   sed usage
+*********************************************************************/	
+
+sed -i "s/oldString/newString/g"  `grep oldString -rl /path`
+
+. 代表一个字符
+
+
+/*********************************************************************
+			   关闭uart log
+*********************************************************************/
+echo 0 > /proc/sys/kernel/printk
+
