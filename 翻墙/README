@@ -1,0 +1,4 @@
+install sslocal
+sslocal -c shadowsocks.json
+chrome//extensions
+SwitchyOmega.crx
