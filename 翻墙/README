@@ -1,17 +1,21 @@
-install sslocal
+//安装sslocal,并运行
+sudo apt-get install python-pip
+sudo pip install shadowsocks
 sslocal -c shadowsocks.json
 
-chrome://extensions
-SwitchyOmega.crx
-https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt
+//配置chrome安装vysor,类似total control
 //add for config vysor tool
 //cp file to ~/.config/google-chrome/pnacl
-
 ~/.config/google-chrome/pnacl
-//安装chrome
+
+//安装chrome,并使用SwitchyOmega.crx插件设置代理sock5
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 dpkg -i google-chrome-stable_current_amd64.deb
-apt-get -f install
+sudo apt-get -f install
+chrome://extensions
+SwitchyOmega.crx
+//获取gfwlist
+https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt
 
 //配置git使用sock5代理
 git config --global http.proxy 'socks5://127.0.0.1:1080' 
@@ -19,3 +23,16 @@ git config --global https.proxy 'socks5://127.0.0.1:1080'
 //关闭git 的sock5代理
 git config --global --unset http.proxy
 git config --global --unset https.proxy
+
+//配置命令行使用sock5代理翻墙
+sudo apt-get install polipo
+sudo vim /etc/polipo/config //增加
+socksParentProxy = "localhost:1080"
+socksProxyType = socks5
+
+#logFile=/var/log/polipo
+logLevel=4
+echo "export http_proxy=http://localhost:8123" >> ~/.bashrc
+echo "export https_proxy=https://localhost:8123" >> ~/.bashrc
+//查看ip地址
+curl ip.gs
