@@ -1,0 +1,6 @@
+~/mov_cdk_release/cdk/mdk/projects/Ipipe2/apps/GuzziSpi_LcaPanoCam_ma2450/leon/main.c
+~/mov_cdk_release/cdk/mdk/projects/Ipipe2/apps/GuzziSpi_LcaPanoCam_ma2450/leon/ic_main.c
+
+~/project_user_20170411/LINUX/android/vendor/mediatek/proprietary/platform/mt6735/hardware/mtkcam/D1/core/imageio/drv/cam/isp_function.cpp
+
+在movidius firmware中，在数据发送前改变buf首部，为温度数据，传给mtk，mtk这边在通过kernel得到数据后，传给hal，解读buf得到温度值
