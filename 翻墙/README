@@ -2,3 +2,7 @@ install sslocal
 sslocal -c shadowsocks.json
 chrome//extensions
 SwitchyOmega.crx
+https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt
+//add for config vysor tool
+//cp file to ~/.config/google-chrome/pnacl
+~/.config/google-chrome/pnacl

@@ -60,3 +60,14 @@ sed 's/$/&TAIL/g' tmp1
 ***************************************************************************************************************************************/
 echo 0 > /proc/sys/kernel/printk
 
+
+
+将android项目导入android studio
+cd development/tools/idegen/
+mm
+croot
+./development/tools/idegen/idegen.sh
+
+then there are many android.xxx created under the root
+
+the android.ipr is used for the android studio module.
