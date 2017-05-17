@@ -6,3 +6,6 @@ https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt
 //add for config vysor tool
 //cp file to ~/.config/google-chrome/pnacl
 ~/.config/google-chrome/pnacl
+//安装chrome
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+dpkg -i google-chrome-stable_current_amd64.deb
