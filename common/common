@@ -71,3 +71,6 @@ croot
 then there are many android.xxx created under the root
 
 the android.ipr is used for the android studio module.
+
+//拉取kernel源码
+git clone http://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git
