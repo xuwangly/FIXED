@@ -1,0 +1,79 @@
+#include <linux/fs.h>
+#include <linux/string.h>
+#include <linux/mm.h>
+#include <linux/syscalls.h>
+#include <asm/unistd.h>
+#include <asm/uaccess.h>
+#include <linux/jiffies.h>
+
+extern void daemonize(void);
+
+struct file *file = NULL;
+
+int write_logo(char * path , char * buf , int len)
+{
+	mm_segment_t old_fs;
+	printk("[LOL]write log.\n");
+
+
+	if(file == NULL)
+			file = filp_open(path, O_RDWR| O_APPEND | O_CREAT, 0666);
+	if (IS_ERR(file)) {
+			pr_err("error occured while opening file %s, exiting...\n", path);
+			return 0;
+	}
+	
+	//sprintf(log_buf,"%s", "The Messages.");
+
+	old_fs = get_fs();
+	set_fs(KERNEL_DS);
+	vfs_write(file, (char *)buf, len, &file->f_pos);
+	set_fs(old_fs);
+	if(file != NULL)
+                filp_close(file, NULL);
+	file = NULL;
+	return 0;
+}
+int thread_func(void *arg)
+{
+	/*
+	 *不要在中断上下文或者handle中调用读写文件操作，会引起系统反复重启
+	 *这里开启了一个专门输出log到文件的线程
+	 */
+	//为线程命名
+    daemonize("print_log"); 
+	//设置线程的状态，不设置则下面的schedule_timeout不会起作用
+	set_current_state(TASK_INTERRUPTIBLE);
+	//睡眠一分钟
+	schedule_timeout(HZ*60);
+	while(1){
+		//do what you want,输出log到文件
+		write_logo(path ,  buf ,  len);
+
+		//设置线程的状态，不设置则下面的schedule_timeout不会起作用
+		set_current_state(TASK_INTERRUPTIBLE);
+		//睡眠十秒
+		schedule_timeout(HZ*10);
+	}
+    return 0;
+}
+
+static int __init my_init(void)
+{
+	int ret;
+	pid_t pid;
+    pid = kernel_thread(thread_func, NULL, CLONE_KERNEL);
+    if (pid < 0)
+    {
+        printk("kernel_thread error\n");
+    }
+}
+static void __exit my_exit(void)
+{
+}
+module_init(my_init);
+module_exit(my_exit);
+
+MODULE_AUTHOR("xu wang");
+MODULE_DESCRIPTION("example");
+MODULE_LICENSE("GPL");
