@@ -74,3 +74,6 @@ the android.ipr is used for the android studio module.
 
 //拉取kernel源码
 git clone http://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git
+
+//将地址转化为函数名，需要制定带symbols的so文件--老罗
+arm-eabi-addr2line -e out/target/product/generic/symbols/system/lib/libxxx.so -f -C <addr> 
