@@ -112,25 +112,22 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-export PATH="/home/wangxu/.linuxbrew/bin:$PATH:/home/wangxu/bin/opt/FriendlyARM/toolschain/4.5.1/bin:/usr/lib/jvm/java-1.7.0-openjdk-amd64/bin:/home/wangxu/opt/FriendlyARM/toolschain/4.5.1/bin:/home/wangxu/SP_Flash_Tool_exe_Linux_v5.1520.00.100:~/github/mygithub/FIXED/bin:~/bin:~/gat-linux-x86_64-3/"
+export PATH="/home/wangxu/.linuxbrew/bin:$PATH:/home/wangxu/bin/opt/FriendlyARM/toolschain/4.5.1/bin:/usr/lib/jvm/java-1.7.0-openjdk-amd64/bin:/home/wangxu/opt/FriendlyARM/toolschain/4.5.1/bin:/home/wangxu/SP_Flash_Tool_exe_Linux_v5.1520.00.100:~/github/mygithub/FIXED/bin:~/bin:~/gat-linux-x86_64-3/:~/.local/bin:~/project_MMS_POC_1.0/LINUX/android/out/host/linux-x86/bin/"
+eval $(thefuck --alias)
+# You can use whatever you want as an alias, like for Mondays:
+eval $(thefuck --alias FUCK)
+alias fuck-it='export THEFUCK_REQUIRE_CONFIRMATION=False; fuck; export THEFUCK_REQUIRE_CONFIRMATION=True'
 
 #polipo config to sock5 1080 && proxy 8123
 export http_proxy=http://localhost:8123 
 export https_proxy=https://localhost:8123
-#alias hp="http_proxy=http://localhost:8123"
-#alias hps="https_proxy=https://localhost:8123"
-disable_proxy() {
-    unset http_proxy
-    unset https_proxy
-}
 #this is a china url for repo
 #export REPO_URL='https://mirrors.tuna.tsinghua.edu.cn/git/git-repo/'
-#export GIT_PROXY_COMMAND="~/path_to_socks5proxywrapper"
-#export GIT_SSH="~/path_to_socks5proxyssh"
 #git config --global http.proxy 'socks5://127.0.0.1:1080' 
 #git config --global https.proxy 'socks5://127.0.0.1:1080'
 export XDG_DATA_DIRS="/home/wangxu/.linuxbrew/share:$XDG_DATA_DIRS"
 
 #http://blog.csdn.net/billfeller/article/details/40215059 => Linux修改Shell命令提示符及颜色
-PS1="\[\e]0;\w\a\e[32;1m\][\[\e[33;1m\]\A\[\e[36;1m\]@\[\e[34;1m\]\w\[\e[32;1m\]]> \[\e[0m\]"
-
+PS1="\[\e]0;\w\a\e[32;1m\][\[\e[33;1m\]\A\[\e[34;1m\]@\[\e[36;6m\]\w\[\e[32;1m\]]> \[\e[0m\]"
+export EDITOR=/usr/bin/vim
+alias indent='indent -npro -nip -nlp -npsl -i4 -ts4 -sob -l200 -ss -bl -bli 0'
