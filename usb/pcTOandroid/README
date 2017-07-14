@@ -1,0 +1,13 @@
+adb forward tcp:12580 tcp:10086 // PC上所有6100端口通信数据将被重定向到手机端7100端口server上
+或者
+adb forward tcp:6100 local:logd // PC上所有6100端口通信数据将被重定向到手机端UNIX类型socket上
+
+
+java
+adb shell am broadcast -a NotifyServiceStop
+
+adb forward tcp:12580 tcp:10086
+
+adb shell am broadcast -a NotifyServiceStart
+
+arm-linux-gcc -static -pthread testAndroidServer.c -o android
