@@ -1,0 +1,5 @@
+ mkdir install
+1.  ./configure
+./configure --build=i686-linux --host=arm-linux --prefix=/home/wangxu/github/mygithub/libusb-1.0.21/install  CC=arm-linux-gcc CXX=arm-linux-g++ --disable-udev
+2.  make
+3.  make install
