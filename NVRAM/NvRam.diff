@@ -1,0 +1,146 @@
+[09:46@~/project_ketwest/LINUX/android/vendor/mediatek/proprietary]> git diff
+diff --git a/proprietary/custom/lenovo8163_tb_s_m/cgen/cfgdefault/CFG_Custom1_Default.h b/proprietary/custom/lenovo8163_tb_s_m/cgen/cfgdefault/CFG_Custom1_Default.h
+index 797542c..1c645cc 100644
+--- a/proprietary/custom/lenovo8163_tb_s_m/cgen/cfgdefault/CFG_Custom1_Default.h
++++ b/proprietary/custom/lenovo8163_tb_s_m/cgen/cfgdefault/CFG_Custom1_Default.h
+@@ -3,7 +3,7 @@
+ 
+ File_Custom1_Struct stCustom1Default =
+ {
+-       1
++       'h' , 'e' , 'l' , 'l' , 'o', 'w' , ',','w' , 'o' , 'r' , 'l' , 'd', '!' ,' ','-' , '-' , 'w' , 'a' ,'n' ,'g','x' ,'u','.' , '\n'
+ };
+ 
+ #endif
+diff --git a/proprietary/custom/lenovo8163_tb_s_m/cgen/cfgfileinc/CFG_Custom1_File.h b/proprietary/custom/lenovo8163_tb_s_m/cgen/cfgfileinc/CFG_Custom1_File.h
+index 8d8a6b8..9876408 100644
+--- a/proprietary/custom/lenovo8163_tb_s_m/cgen/cfgfileinc/CFG_Custom1_File.h
++++ b/proprietary/custom/lenovo8163_tb_s_m/cgen/cfgfileinc/CFG_Custom1_File.h
+@@ -3,7 +3,7 @@
+ 
+ typedef struct
+ {
+-       unsigned int Array[1];
++       unsigned char array[40];
+ }File_Custom1_Struct;
+ 
+ #define CFG_FILE_CUSTOM1_REC_SIZE    sizeof(File_Custom1_Struct)
+diff --git a/proprietary/custom/lenovo8163_tb_s_m/cgen/inc/CFG_file_info_custom.h b/proprietary/custom/lenovo8163_tb_s_m/cgen/inc/CFG_file_info_custom.h
+index a2b309d..36cdd46 100644
+--- a/proprietary/custom/lenovo8163_tb_s_m/cgen/inc/CFG_file_info_custom.h
++++ b/proprietary/custom/lenovo8163_tb_s_m/cgen/inc/CFG_file_info_custom.h
+@@ -69,6 +69,8 @@
+ #include "../cfgdefault/CFG_WIFI_Default.h"
+ #include "../cfgfileinc/CFG_PRODUCT_INFO_File.h"
+ #include "../cfgdefault/CFG_PRODUCT_INFO_Default.h"
++#include "../cfgfileinc/CFG_Custom1_File.h"
++#include "../cfgdefault/CFG_Custom1_Default.h"
+ #include <stdio.h>
+ #ifdef __cplusplus
+ extern "C"
+@@ -172,6 +174,10 @@ extern "C"
+         { "/data/nvram/APCFG/APRDCL/Audio_HAC_Param",   VER(AP_CFG_RDCL_FILE_AUDIO_HAC_PARAM_LID), CFG_FILE_SPEECH_HAC_PARAM_SIZE,
+             CFG_FILE_SPEECH_HAC_PARAM_TOTAL, SIGNLE_DEFUALT_REC  ,    (char *)&speech_hac_param_custom_default, DataReset , NULL
+         },
++        //add --wangxu
++        { "/data/nvram/APCFG/APRDCL/Pico_data",   VER(AP_CFG_CUSTOM_FILE_CUSTOM1_LID), CFG_FILE_CUSTOM1_REC_SIZE,
++            CFG_FILE_CUSTOM1_REC_TOTAL, SIGNLE_DEFUALT_REC  ,    (char *)&stCustom1Default, DataReset , NULL
++        },
+     };
+ 
+     int iNvRamFileMaxLID=AP_CFG_CUSTOM_FILE_MAX_LID;
+diff --git a/proprietary/custom/lenovo8163_tb_s_m/cgen/inc/Custom_NvRam_LID.h b/proprietary/custom/lenovo8163_tb_s_m/cgen/inc/Custom_NvRam_LID.h
+index 3195032..a882653 100644
+--- a/proprietary/custom/lenovo8163_tb_s_m/cgen/inc/Custom_NvRam_LID.h
++++ b/proprietary/custom/lenovo8163_tb_s_m/cgen/inc/Custom_NvRam_LID.h
+@@ -163,6 +163,7 @@ typedef enum
+     AP_CFG_RDCL_FILE_AUDIO_RINGTONE_DRC_LID,
+     AP_CFG_RDCL_FILE_AUDIO_MAGI_CONFERENCE_LID,
+     AP_CFG_RDCL_FILE_AUDIO_HAC_PARAM_LID,
++    AP_CFG_CUSTOM_FILE_CUSTOM1_LID,//add at the end before MAX_LID--wangxu
+     AP_CFG_CUSTOM_FILE_MAX_LID,
+ } CUSTOM_CFG_FILE_LID;
+ 
+@@ -211,8 +212,8 @@ typedef enum
+ /* META log and com port config file version */
+ #define AP_CFG_RDCL_FILE_META_LID_VERNO                            "000"
+ 
+-/* custom2 file version */
+-#define AP_CFG_CUSTOM_FILE_CUSTOM1_LID_VERNO                   "000"
++/* custom1 file version */
++#define AP_CFG_CUSTOM_FILE_CUSTOM1_LID_VERNO                   "001"
+ /* custom2 file version */
+ #define AP_CFG_CUSTOM_FILE_CUSTOM2_LID_VERNO                   "000"
+ 
+diff --git a/proprietary/custom/lenovo8163_tb_s_m/cgen/inc/Custom_NvRam_data_item.h b/proprietary/custom/lenovo8163_tb_s_m/cgen/inc/Custom_NvRam_data_item.h
+index 20e8cd2..1eb74c0 100644
+--- a/proprietary/custom/lenovo8163_tb_s_m/cgen/inc/Custom_NvRam_data_item.h
++++ b/proprietary/custom/lenovo8163_tb_s_m/cgen/inc/Custom_NvRam_data_item.h
+@@ -199,6 +199,12 @@ AUDIO_CUSTOM_HAC_PARAM_STRUCT *CFG_FILE_SPEECH_HAC_PARAM_TOTAL
+ 
+ };
+ 
++LID_BIT VER_LID(AP_CFG_CUSTOM_FILE_CUSTOM1_LID)
++File_Custom1_Struct *CFG_FILE_CUSTOM1_REC_TOTAL
++{
++
++};
++
+ END_NVRAM_DATA
+ 
+ #endif /* CUSTOM_NVRAM_DATA_ITEM_H */
+diff --git a/proprietary/external/nvram/libcustom_nvram/CFG_file_info.c b/proprietary/external/nvram/libcustom_nvram/CFG_file_info.c
+index f21b789..08b4c33 100644
+--- a/proprietary/external/nvram/libcustom_nvram/CFG_file_info.c
++++ b/proprietary/external/nvram/libcustom_nvram/CFG_file_info.c
+@@ -359,6 +359,7 @@ FileName aBackupToBinRegion[]=
+     {"CAMERA_AF",AP_CFG_RDCL_CAMERA_AF_LID},
+     {"CAMERA_FLASH_CALIBRATION",AP_CFG_RDCL_CAMERA_FLASH_CALIBRATION_LID},
+ #endif
++       {"Pico_data",AP_CFG_CUSTOM_FILE_CUSTOM1_LID},
+ };
+ FileName aPerformance[]=
+ {
+(END)
+
+
+
+[09:47@~/project_ketwest/LINUX/android/device/mediatek/common]> git diff
+diff --git a/sepolicy/nvram_daemon.te b/sepolicy/nvram_daemon.te
+index 27f5f70..e007a57 100644
+--- a/sepolicy/nvram_daemon.te
++++ b/sepolicy/nvram_daemon.te
+@@ -82,3 +82,5 @@ allow nvram_daemon proc_lk_env:file { read write ioctl open };
+ # Purpose: for workaround
+ # Todo: Remove this policy
+ allow nvram_daemon system_data_file:dir write;
++allow nvram_daemon system_data_file:dir { read remove_name add_name };
++allow nvram_daemon system_data_file:file { write open };
+
+
+[09:48@~/project_ketwest/LINUX/android/external/selinux]> git diff
+diff --git a/sepolicy/domain.te b/sepolicy/domain.te
+index 280d995..72ff363 100644
+--- a/sepolicy/domain.te
++++ b/sepolicy/domain.te
+@@ -436,13 +436,13 @@ neverallow ~domain domain:process { transition dyntransition };
+ # Example type transition:
+ #  mydomain.te:file_type_auto_trans(mydomain, system_data_file, new_file_type)
+ #
+-neverallow {
+-  domain
+-  -system_server
+-  -system_app
+-  -init
+-  -installd # for relabelfrom and unlink, check for this in explicit neverallow
+-} system_data_file:file no_w_file_perms;
++#neverallow {
++#  domain
++#  -system_server
++#  -system_app
++#  -init
++#  -installd # for relabelfrom and unlink, check for this in explicit neverallow
++#} system_data_file:file no_w_file_perms;
+ # do not grant anything greater than r_file_perms and relabelfrom unlink
+ # to installd
+ neverallow installd system_data_file:file ~{ r_file_perms relabelfrom unlink };
