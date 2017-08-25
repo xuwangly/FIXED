@@ -37,3 +37,16 @@ echo "export https_proxy=https://localhost:8123" >> ~/.bashrc
 //查看ip地址
 curl ip.gs
 http://www.jianshu.com/p/2f7415a799cc
+
+#enable webgl
+Step 1: Open Google Chrome
+
+Step 2: Type chrome://flags in the address bar
+
+Step 3: Press Ctrl + f and type ” Rendering list “, “Override software rendering list” should come up, Now click on Enable and restart the browser.
+
+Step 4: Completely kill Chrome: Type killall chrome into a console.
+
+Step 5: Go to chrome://settings and enable Use hardware acceleration when available. By default it is off since version 43. 
+
+Step 6: Start Chrome

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/system/bin/sh
 tmp=0
 while true
 do  

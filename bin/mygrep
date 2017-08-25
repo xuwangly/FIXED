@@ -4,3 +4,5 @@ if [ "" = "$1" ]; then
 else
 	grep -r $2 --color --binary-files=without-match $1 ./*
 fi
+
+#grep -r --exclude="*.c" --exclude="*.java" --exclude="*.cpp"  --exclude="*.h" --color --binary-files=without-match CONFIG_USB_GADGETFS ./*
