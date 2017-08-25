@@ -1,0 +1,222 @@
+一、驱动源码包结构
+拿到的驱动源码包解压后得到hal和kernel两个目录文件，源码目录结构如下所示
+
+13850-6592-driver-10-28.7z
+
+|--hal
+
+|  |--camera_AE_PLineTable_ov13850mipiraw.h
+
+|  |--camera_calibration_cam_cal.cpp
+
+|  |--camera_flicker_para_ov13850mipiraw.cpp
+
+|  |--camera_info_ov13850mipiraw.h
+
+|  |--camera_isp_lsc_ov13850mipiraw.h
+
+|  |--camera_isp_pca_ov13850mipiraw.h
+
+|  |--camera_isp_regs_ov13850mipiraw.h
+
+|  |--camera_tsf_data_ov13850mipiraw.h
+
+|  |--camera_tsf_para_ov13850mipiraw.h
+
+|  |--camera_tuning_para_ov13850mipiraw.cpp
+
+|  |--config.ftbl.ov13850_mipi_raw.h
+
+|--kernel
+
+|  |--ov13850mipiraw_Camera_Sensor_para.h
+
+|  |--ov13850mipiraw_CameraCustomized.h
+
+|  |--ov13850mipiraw_Sensor.c
+
+|  |--ov13850mipiraw_Sensor.h
+
+
+
+
+二、ov13850驱动移植记录
+1、kernel
+Sensor：
+
+在mediatek\custom\common\kernel\imgsensor\目录下增加ov13850_mipi_raw文件夹，把驱动源码kernel目录中所有文件copy进来。
+修改mediatek\custom\common\kernel\imgsensor\inc\kd_imgsensor.h文件，增加ov13850 SENSOR_ID和SENSOR_DRVNAME定义
+[cpp] view plain copy
+#define OV13850_SENSOR_ID             0xD850  
+#define SENSOR_DRVNAME_OV13850_MIPI_RAW   "ov13850mipiraw"  
+修改mediatek\custom\common\kernel\imgsensor\src\kd_sensorlist.h
+增加OV13850_MIPI_RAW_SensorInit函数声明
+
+[cpp] view plain copy
+UINT32 OV13850_MIPI_RAW_SensorInit(PSENSOR_FUNCTION_STRUCT *pfFunc);  
+在kdSensorList数组中增加OV13850配置
+[cpp] view plain copy
+ACDK_KD_SENSOR_INIT_FUNCTION_STRUCT kdSensorList[MAX_NUM_OF_SUPPORT_SENSOR+1] =  
+{  
+...  
+#if defined(OV13850_MIPI_RAW)  
+    {OV13850_SENSOR_ID, SENSOR_DRVNAME_OV13850_MIPI_RAW, OV13850_MIPI_RAW_SensorInit},   
+#endif  
+...  
+}  
+在mediatek\custom\wind92_wet_tdd\kernel\camera\camera\kd_camera_hw.c里，增加对OV13850的供电配置，参考OV12830和datasheet。由于OV12830和OV13850供电配置一样，所以copy12830，更改下名字即可。
+[cpp] view plain copy
+int kdCISModulePowerOn(CAMERA_DUAL_CAMERA_SENSOR_ENUM SensorIdx, char *currSensorName, BOOL On, char* mode_name)  
+{  
+//...  
+else if (currSensorName && (0 == strcmp(SENSOR_DRVNAME_OV13850_MIPI_RAW,currSensorName)))  
+{  
+    printk("MYCAT kdCISModulePowerOn  SENSOR_DRVNAME_OV13850_MIPI_RAW \n");  
+    printk("MYCAT OV13850_RAW idx:%d \n",SensorIdx);  
+    #ifdef  __MAINSENSOR_USE_LDO_1_2V__  
+  
+    if (mt_set_gpio_pull_enable(CAMERA_POWER_VCAM_D_LDO_PIN, GPIO_PULL_DISABLE))    {PK_DBG("[CAMERA SENSOR] CAMERA_POWER_VCAM_D_LDO_PIN pull failed! \n"); }  
+    if (mt_set_gpio_mode(CAMERA_POWER_VCAM_D_LDO_PIN, GPIO_MODE_00)){PK_DBG("[CAMERA SENSOR] CAMERA_POWER_VCAM_D_LDO_PIN mode failed! \n");}  
+    if (mt_set_gpio_dir(CAMERA_POWER_VCAM_D_LDO_PIN,GPIO_DIR_OUT)) {PK_DBG("[CAMERA SENSOR] CAMERA_POWER_VCAM_D_LDO_PIN dir failed! \n");}  
+    if (mt_set_gpio_out(CAMERA_POWER_VCAM_D_LDO_PIN,GPIO_OUT_ONE)) {PK_DBG("[CAMERA SENSOR] CAMERA_POWER_VCAM_D_LDO_PIN out failed! \n");}  
+              
+    #else  
+                  
+    // printk("MYCAT S5KH2_RAW POWER ON LDO D\n");  
+    if (TRUE != hwPowerOn(CAMERA_POWER_VCAM_D, VOL_1200,mode_name))  
+    {  
+        PK_DBG("[CAMERA SENSOR] Fail to enable digital power\n");  
+        //return -EIO;  
+        goto _kdCISModulePowerOn_exit_;  
+    }  
+  
+  
+    #endif  
+      
+    //printk("MYCAT S5KH2_RAW POWER ON LDO A\n");  
+      
+    if (TRUE != hwPowerOn(CAMERA_POWER_VCAM_A, VOL_2800,mode_name))  
+    {  
+<span style="white-space:pre">    </span>   PK_DBG("[CAMERA SENSOR] Fail to enable analog power\n");  
+        //return -EIO;  
+        goto _kdCISModulePowerOn_exit_;  
+    }  
+      
+    //printk("MYCAT S5KH2_RAW POWER ON LDO D2\n");  
+      
+    if (TRUE != hwPowerOn(CAMERA_POWER_VCAM_D2, VOL_1800,mode_name))  
+    {  
+        PK_DBG("[CAMERA SENSOR] Fail to enable digital power\n");  
+        //return -EIO;  
+        goto _kdCISModulePowerOn_exit_;  
+    }  
+    //printk("MYCAT S5KH2_RAW POWER ON LDO A2\n");  
+    if (TRUE != hwPowerOn(CAMERA_POWER_VCAM_A2, VOL_2800,mode_name))  
+    {  
+        PK_DBG("[CAMERA SENSOR] Fail to enable analog power\n");  
+        //return -EIO;  
+        goto _kdCISModulePowerOn_exit_;  
+    }  
+    msleep(5);  
+      
+    //disable inactive sensor  
+    if (pinSetIdx == 0 || pinSetIdx == 2)   
+    {//disable sub  
+    <span style="white-space:pre">    </span>if (GPIO_CAMERA_INVALID != pinSet[1][IDX_PS_CMRST])   
+        {  
+            if (mt_set_gpio_mode(pinSet[1][IDX_PS_CMRST],pinSet[1][IDX_PS_CMRST+IDX_PS_MODE])){PK_DBG("[CAMERA SENSOR] set gpio mode failed!! \n");}  
+            if (mt_set_gpio_mode(pinSet[1][IDX_PS_CMPDN],pinSet[1][IDX_PS_CMPDN+IDX_PS_MODE])){PK_DBG("[CAMERA LENS] set gpio mode failed!! \n");}  
+            if (mt_set_gpio_dir(pinSet[1][IDX_PS_CMRST],GPIO_DIR_OUT)){PK_DBG("[CAMERA SENSOR] set gpio dir failed!! \n");}  
+            if (mt_set_gpio_dir(pinSet[1][IDX_PS_CMPDN],GPIO_DIR_OUT)){PK_DBG("[CAMERA LENS] set gpio dir failed!! \n");}  
+            if (mt_set_gpio_out(pinSet[1][IDX_PS_CMRST],pinSet[1][IDX_PS_CMRST+IDX_PS_OFF])){PK_DBG("[CAMERA SENSOR] set gpio failed!! \n");} //low == reset sensor  
+            if (mt_set_gpio_out(pinSet[1][IDX_PS_CMPDN],pinSet[1][IDX_PS_CMPDN+IDX_PS_OFF])){PK_DBG("[CAMERA LENS] set gpio failed!! \n");} //high == power down lens module  
+        }  
+    }  
+    else   
+    {  
+        if (GPIO_CAMERA_INVALID != pinSet[0][IDX_PS_CMRST])   
+        {  
+            if (mt_set_gpio_mode(pinSet[0][IDX_PS_CMRST],pinSet[0][IDX_PS_CMRST+IDX_PS_MODE])){PK_DBG("[CAMERA SENSOR] set gpio mode failed!! \n");}  
+            if (mt_set_gpio_mode(pinSet[0][IDX_PS_CMPDN],pinSet[0][IDX_PS_CMPDN+IDX_PS_MODE])){PK_DBG("[CAMERA LENS] set gpio mode failed!! \n");}  
+            if (mt_set_gpio_dir(pinSet[0][IDX_PS_CMRST],GPIO_DIR_OUT)){PK_DBG("[CAMERA SENSOR] set gpio dir failed!! \n");}  
+            if (mt_set_gpio_dir(pinSet[0][IDX_PS_CMPDN],GPIO_DIR_OUT)){PK_DBG("[CAMERA LENS] set gpio dir failed!! \n");}  
+            if (mt_set_gpio_out(pinSet[0][IDX_PS_CMRST],pinSet[0][IDX_PS_CMRST+IDX_PS_OFF])){PK_DBG("[CAMERA SENSOR] set gpio failed!! \n");} //low == reset sensor  
+            if (mt_set_gpio_out(pinSet[0][IDX_PS_CMPDN],pinSet[0][IDX_PS_CMPDN+IDX_PS_OFF])){PK_DBG("[CAMERA LENS] set gpio failed!! \n");} //high == power down lens module  
+        }  
+        if (GPIO_CAMERA_INVALID != pinSet[2][IDX_PS_CMRST])   
+        {  
+                                  
+        }  
+    }  
+    //PDN/STBY pin  
+    if (GPIO_CAMERA_INVALID != pinSet[pinSetIdx][IDX_PS_CMRST])  
+    {  
+        if (mt_set_gpio_mode(pinSet[pinSetIdx][IDX_PS_CMRST],pinSet[pinSetIdx][IDX_PS_CMRST+IDX_PS_MODE])){PK_DBG("[CAMERA SENSOR] set gpio mode failed!! \n");}  
+        if (mt_set_gpio_dir(pinSet[pinSetIdx][IDX_PS_CMRST],GPIO_DIR_OUT)){PK_DBG("[CAMERA SENSOR] set gpio dir failed!! \n");}  
+        if (mt_set_gpio_out(pinSet[pinSetIdx][IDX_PS_CMRST],pinSet[pinSetIdx][IDX_PS_CMRST+IDX_PS_OFF])){PK_DBG("[CAMERA SENSOR] set gpio failed!! \n");}  
+        //PDN pin  
+        if (mt_set_gpio_mode(pinSet[pinSetIdx][IDX_PS_CMPDN],pinSet[pinSetIdx][IDX_PS_CMPDN+IDX_PS_MODE])){PK_DBG("[CAMERA LENS] set gpio mode failed!! \n");}  
+        if (mt_set_gpio_dir(pinSet[pinSetIdx][IDX_PS_CMPDN],GPIO_DIR_OUT)){PK_DBG("[CAMERA LENS] set gpio dir failed!! \n");}  
+        if (mt_set_gpio_out(pinSet[pinSetIdx][IDX_PS_CMPDN],pinSet[pinSetIdx][IDX_PS_CMPDN+IDX_PS_OFF])){PK_DBG("[CAMERA LENS] set gpio failed!! \n");}  
+        msleep(1);  
+        if (mt_set_gpio_out(pinSet[pinSetIdx][IDX_PS_CMPDN],pinSet[pinSetIdx][IDX_PS_CMPDN+IDX_PS_ON])){PK_DBG("[CAMERA LENS] set gpio failed!! \n");}  
+        msleep(1);  
+        if (mt_set_gpio_out(pinSet[pinSetIdx][IDX_PS_CMRST],pinSet[pinSetIdx][IDX_PS_CMRST+IDX_PS_ON])){PK_DBG("[CAMERA SENSOR] set gpio failed!! \n");}  
+        msleep(1);  
+        printk("OV13850 PWN RST\n");  
+    }  
+}     
+//...  
+
+Lens：
+
+在mediatek\custom\common\kernel\lens\目录下参照ov12830af，增加ov13850af 目录和驱动源码OV13850AF.c。
+mediatek\custom\common\kernel\lens\inc\目录下参照ov12830af，增加ov13850af目录和OV13850AF.h头文件
+
+2、HAL
+Sensor：
+
+在mediatek\custom\mt6592\hal\imgsensor\目录下增加ov13850_mipi_raw文件夹，将OV13850驱动源码包中的hal下文件，copy到该文件夹下。
+修改mediatek\custom\common\hal\imgsensor\src\sensorlist.cpp增加OV13850的SensorList描述项。
+[cpp] view plain copy
+MSDK_SENSOR_INIT_FUNCTION_STRUCT SensorList[] =  
+{  
+    ...  
+    #if defined(OV13850_MIPI_RAW)  
+        RAW_INFO(OV13850_SENSOR_ID, SENSOR_DRVNAME_OV13850_MIPI_RAW,NULL),  
+    #endif  
+    ...  
+}  
+Lens：
+
+在mediatek\custom\common\hal\lens\下，增加ov13850af目录，参照ov12830增加lens_para_OV13850AF.cpp
+修改mediatek\custom\out\wind92_wet_tdd\hal\lens\src\Lenslist.cpp在LensList数组项里增加OV13850AF描述项。
+[cpp] view plain copy
+#if defined(OV13850AF)  
+extern PFUNC_GETLENSDEFAULT pOV13850AF_getDefaultData;  
+#endif  
+MSDK_LENS_INIT_FUNCTION_STRUCT LensList[MAX_NUM_OF_SUPPORT_LENS] =
+[cpp] view plain copy
+{  
+    ...  
+    #if defined(OV13850AF)  
+        {OV13850_SENSOR_ID, OV13850AF_LENS_ID, "OV13850AF", pOV13850AF_getDefaultData},  
+    #endif  
+    ...  
+}  
+修改camera_custom_lens.h，增加OV13850_LENS_ID，这里根据序号累加。
+[cpp] view plain copy
+#define OV13850AF_LENS_ID                    0x0008  
+3、修改ProductConfig.mk
+
+[plain] view plain copy
+CUSTOM_HAL_IMGSENSOR= ov13850_mipi_raw ov5648_mipi_raw  
+CUSTOM_HAL_LENS= ov13850af  dummy_lens  
+CUSTOM_HAL_MAIN_IMGSENSOR= ov13850_mipi_raw  
+CUSTOM_HAL_MAIN_LENS= ov13850af  
+CUSTOM_KERNEL_IMGSENSOR= ov13850_mipi_raw ov5648_mipi_raw  
+CUSTOM_KERNEL_LENS= ov13850af dummy_lens  
+CUSTOM_KERNEL_MAIN_IMGSENSOR= ov13850_mipi_raw  
+CUSTOM_KERNEL_MAIN_LENS= ov13850af  
+
+4、最后要修改init.rc 更改OV13850AF设备文件的权限，否则在open的时候会失败。
