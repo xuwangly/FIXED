@@ -1,0 +1,71 @@
+#!/bin/bash
+
+PROJECT_PATH="~/wangxu_project_0306/LA.UM.6.6/LINUX/android"
+expect -c "
+spawn scp chenyue@10.4.64.104:$PROJECT_PATH/out/target/product/smartcast/emmc_appsboot.mbn .
+expect {
+\"*assword\" {set timeout 300; send \"661314\r\";}
+\"yes/no\" {send \"yes\r\"; exp_continue;}
+}
+expect eof" 
+
+expect -c "
+spawn scp chenyue@10.4.64.104:$PROJECT_PATH/out/target/product/smartcast/boot.img .
+expect {
+\"*assword\" {set timeout 300; send \"661314\r\";}
+\"yes/no\" {send \"yes\r\"; exp_continue;}
+}
+expect eof" 
+
+expect -c "
+spawn scp chenyue@10.4.64.104:$PROJECT_PATH/out/target/product/smartcast/system.img .
+expect {
+\"*assword\" {set timeout 300; send \"661314\r\";}
+\"yes/no\" {send \"yes\r\"; exp_continue;}
+}
+expect eof" 
+
+expect -c "
+spawn scp chenyue@10.4.64.104:$PROJECT_PATH/out/target/product/smartcast/vendor.img .
+expect {
+\"*assword\" {set timeout 300; send \"661314\r\";}
+\"yes/no\" {send \"yes\r\"; exp_continue;}
+}
+expect eof" 
+
+expect -c "
+spawn scp chenyue@10.4.64.104:$PROJECT_PATH/out/target/product/smartcast/persist.img .
+expect {
+\"*assword\" {set timeout 300; send \"661314\r\";}
+\"yes/no\" {send \"yes\r\"; exp_continue;}
+}
+expect eof" 
+
+expect -c "
+spawn scp chenyue@10.4.64.104:$PROJECT_PATH/out/target/product/smartcast/userdata.img .
+expect {
+\"*assword\" {set timeout 300; send \"661314\r\";}
+\"yes/no\" {send \"yes\r\"; exp_continue;}
+}
+expect eof" 
+
+
+expect -c "
+spawn scp chenyue@10.4.64.104:$PROJECT_PATH/out/target/product/smartcast/splash.img .
+expect {
+\"*assword\" {set timeout 300; send \"661314\r\";}
+\"yes/no\" {send \"yes\r\"; exp_continue;}
+}
+expect eof"
+
+#scp chenyue@10.4.64.104:~/20180104/LA.UM.6.6/LINUX/android/out/target/product/smartcast/emmc_appsboot.mbn .
+
+#scp chenyue@10.4.64.104:~/20180104/LA.UM.6.6/LINUX/android/out/target/product/smartcast/boot.img .
+
+#scp chenyue@10.4.64.104:~/20180104/LA.UM.6.6/LINUX/android/out/target/product/smartcast/system.img .
+
+#scp chenyue@10.4.64.104:~/20180104/LA.UM.6.6/LINUX/android/out/target/product/smartcast/vendor.img .
+
+#scp chenyue@10.4.64.104:~/20180104/LA.UM.6.6/LINUX/android/out/target/product/smartcast/persist.img .
+
+#scp chenyue@10.4.64.104:~/20180104/LA.UM.6.6/LINUX/android/out/target/product/smartcast/userdata.img .

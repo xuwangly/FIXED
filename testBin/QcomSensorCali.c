@@ -122,7 +122,7 @@ int main(int argc, char const *argv[])
 			  + abs(averageData.ry - rawData[j].ry)
 			  + abs(averageData.rz - rawData[j].rz);
 		printf("%d\n" , tmp2);
-		if(tmp1 > 150 || tmp2 > 20){
+		if(tmp1 > 400 || tmp2 > 50){
 			printf("sensor calibrate failed\n");
 			return 0;
 		}
