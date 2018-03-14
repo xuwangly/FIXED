@@ -1,5 +1,6 @@
 set line /dev/ttyUSB0
-set speed 921600
+#set speed 921600
+set speed 115200
 set carrier-watch off
 set handshake none
 set flow-control none
