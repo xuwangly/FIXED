@@ -1,0 +1,115 @@
+#change docker registry
+sudo gedit /etc/docker/daemon.json
+add:
+{
+  "registry-mirrors": ["https://registry.docker-cn.com"]
+}
+
+#pull docker image 
+sudo docker pull registry.docker-cn.com/library/ubuntu:16.04
+
+# run a bin
+sudo docker run ubuntu:16.04 /bin/echo "Hello world"
+
+
+#use tty
+sudo docker run -i -t ubuntu:14.04 /bin/bash
+
+#images list
+sudo docker run -i -t ubuntu:14.04 /bin/bash
+
+#update a image
+1.change someting in image
+sudo docker run -i -t ubuntu:14.04 /bin/bash
+touch test
+exit
+2.commit
+sudo docker commit -m="add test file" -a="wangxu" 8d8c5b48721a ubuntu:test
+
+#build a image 
+1.create Dockerfile
+FROM    ubuntu:14.04
+MAINTAINER      Fisher "fisher@sudops.com"
+
+RUN     /bin/echo 'root:123456' |chpasswd
+RUN     useradd runoob
+RUN     /bin/echo 'runoob:123456' |chpasswd
+RUN     /bin/echo -e "LANG=\"en_US.UTF-8\"" >/etc/default/local
+EXPOSE  22
+EXPOSE  80
+CMD     /usr/sbin/sshd -D
+2.build image
+sudo docker build -t ubuntu:build  .
+
+#add tag
+sudo docker tag 860c279d2fec ubuntu:tag
+
+
+
+docker run \
+     --detach --tty \
+     --privileged \
+     --volume /home:/home \
+     --volume /media:/media \
+     --volume /srv:/srv \
+     --volume /share:/share \
+     --volume /tmp:/tmp \
+     --volume /dev/bus/usb:/dev/bus/usb \
+     --workdir /home/xuw/work/project/TKOSKI/TKOSKI \
+     --name=wangxu_share_nxp-imx_xenial \
+     wangxu_share/local:nxp-imx_xenial \
+     /bin/bash
+
+
+docker run \
+     --detach --tty \
+     --privileged \
+     --volume /home:/home \
+     --volume /media:/media \
+     --volume /srv:/srv \
+     --volume /share:/share \
+     --volume /tmp:/tmp \
+     --volume /dev/bus/usb:/dev/bus/usb \
+     --workdir /home/xuw/work/project/Soyea/kangdi_4_13 \
+     --name=wangxu_trusty-openjdk-8 \
+     wangxu/local:trusty-openjdk-8 \
+     /bin/bash
+
+docker run \
+     --detach --tty \
+     --privileged \
+     --volume /home:/home \
+     --volume /media:/media \
+     --volume /srv:/srv \
+     --volume /share:/share \
+     --volume /tmp:/tmp \
+     --volume /dev/bus/usb:/dev/bus/usb \
+     --workdir /home/xuw/work/project/Soyea/android-7.1.1_r13 \
+     --name=wangxu_soyea_7.1 \
+     wangxu_share/local:nxp-imx_xenial \
+     /bin/bash
+
+ docker exec -it wangxu_share_nxp-imx_xenial /bin/bash
+
+docker exec -it wangxu_trusty-openjdk-8 /bin/bash
+
+docker exec -it wangxu_soyea_7.1 /bin/bash
+
+source build/envsetup.sh
+lunch sabresd_6dq-eng
+nice -n 19 ionice -c 3 time make -j16
+
+BUILD_TARGET_DEVICE
+
+#file path
+ivios-ro.ext4fs (Remember to build this with BUILD_TARGET_DEVICE=sd)
+out/target/product/sabresd_6dq/root/lib/modules
+out/target/product/sabresd_6dq/root/boot/imx6/uMulti-halti-rd
+vendor/linkmotion/sabresd_6dq/overlay
+
+
+#ivios-ro.ext4fs (Remember to build this with BUILD_TARGET_DEVICE=sd)
+#out/target/product/sabresd_6dq/root/lib/modules
+#out/target/product/sabresd_6dq/root/boot/imx6/uMulti-halti-rd
+#vendor/linkmotion/sabresd_6dq/overlay
+#argo image with verion 0.31 (eg. imx6-0.31-swa_system-rnd-20171106-1549.zip)

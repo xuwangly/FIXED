@@ -80,3 +80,4 @@ arm-eabi-addr2line -e out/target/product/generic/symbols/system/lib/libxxx.so -f
 
 //send boardcast with adb
 adb shell am broadcast -a android.intent.action.WRITE_NVRAM
+du -lh --max-depth=1

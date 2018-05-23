@@ -1,0 +1,50 @@
+docker.io
+
+#use proxy in tty
+proxychains wget http://www.google.com
+
+ssh lm@101.132.156.89
+suckmydick
+ssh -p 8000 xuw@localhost
+
+ssh xuw@192.168.8.109
+xuw
+85963363
+
+wang.xu@link-motion.com
+Rn8TGZQ36Q
+
+wangxu@linkmotionfuture.com
+85963363Wang
+
+https://jira.link-motion.com/browse/IT-966
+https://bitbucket.link-motion.com/projects/SWAI/repos/lmdsapi-host/pull-requests?create
+https://confluence.link-motion.com/display/TKOSKI/Container+SD+Boot
+https://auth.nomovok.info/
+https://linkmotion.slack.com/messages/G7673N56K/
+
+#git config --global http.proxy 'socks5://127.0.0.1:1080'
+#git config --global https.proxy 'socks5://127.0.0.1:1080'
+#git config --global --unset http.proxy
+#git config --global --unset https.proxy
+
+
+setenv config_bootargs_extra "print-fatal-signals=1 linkmotion-root-rw rw androidboot.hardware=freescale androidboot.selinux=permissive vmalloc=256M cma=496M brcmfmac.p2pon=1"
+setenv preconfig_display_itd70 "video=mxcfb0:dev=hdmi,1280x800M@60,if=RGB24"
+setenv tmp_display "$preconfig_display_koe $preconfig_display_itd70"
+
+setenv config_bootargs_extra "print-fatal-signals=1 linkmotion-root-rw rw androidboot.hardware=freescale androidboot.selinux=permissive vmalloc=256M cma=496M brcmfmac.p2pon=1"
+setenv preconfig_display_itd70 "video=mxcfb0:dev=ldb,1440x540@60,if=RGB666 video=mxcfb2:dev=ldb,1440x540@60,if=RGB666 lvds0_timing=2 lvds1_timing=2"
+setenv tmp_display "$preconfig_display_itd70"
+
+echo 'skytree' | su -c 'busybox-static fbset -fb /dev/fb0 -xres 1440 -yres 540 -vxres 1440 -vyres 540'
+echo 'skytree' | su -c 'busybox-static fbset -fb /dev/fb1 -xres 1440 -yres 540 -vxres 1440 -vyres 540'
+echo 'skytree' | su -c 'busybox-static fbset -fb /dev/fb2 -xres 1440 -yres 540 -vxres 1440 -vyres 540'
+
+lxc-attach -P /usr/lib/lm_containers -n ivi -v PATH=/system/bin -- /system/bin/sh
+
+run cmd_sdboot  #sd card
+boot 		#emmc
+
+user: 		root
+password:	skytree

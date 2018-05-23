@@ -1,0 +1,24 @@
+#!/usr/bin/expect
+##!/bin/bash
+
+#expect -c "
+#spawn ssh lm@101.132.156.89
+#expect {
+#\"*assword\" {set timeout 1; send \"suckmydick\r\";}
+#\"yes/no\" {set timeout 1; send \"yes\r\"; exp_continue;}
+#}
+#expect eof" 
+
+spawn ssh lm@101.132.156.89
+
+expect "*assword*"
+send "suckmydick\r"
+#expect "*#"
+interact
+#exit
+
+
+#ssh lm@101.132.156.89
+#suckmydick
+#ssh -p 8000 xuw@localhost
+#taut360]hoboes
